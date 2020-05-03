@@ -110,9 +110,9 @@
                 '<div class="article-entry">' +
                 obj['articleTabloid'] +
                 '</div>' +
-                '<div class="read-all">' +
-                '<a href="' + obj['thisArticleUrl'] + '" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>' +
-                '</div>' +
+                // '<div class="read-all">' +
+                // '<a href="' + obj['thisArticleUrl'] + '" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>' +
+                // '</div>' +
                 '<hr>' +
                 '<div class="article-tags">' +
 

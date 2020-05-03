@@ -142,7 +142,7 @@ $('#sidebar_toggle').click(function () {
         error:function () {
         }
     });
-    $('.weixinPublic').attr("src","https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/weixin.jpg");
+    $('.weixinPublic').attr("src","https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg");
 });
 
 //获得登录用户未读消息

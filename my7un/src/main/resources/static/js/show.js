@@ -22,7 +22,7 @@
             '<i class="am-icon-folder"> <a class="articleCategoryColor" href="/categories?category=' + data.articleCategories + '">' + data.articleCategories + '</a></i>' +
             '</div>' +
             '</div></article-top><div class="article-i-say">' +
-            '多年以后，愿你的城市，有清风，有烈酒，也有人是你的归途。<span class="article-i-say-me">--- 张海洋</span>' +
+            '多年以后，愿你的城市，有清风，有烈酒，也有人是你的归途。<span class="article-i-say-me">--- 峻仔</span>' +
             '</div>');
         $('.zhy-article-top').append(articleTop);
         $("#mdText").text(data.articleContent);
@@ -41,7 +41,7 @@
             '<div class="show-weixin">' +
             '<p><i class="weiXinQuoteLeft am-icon-quote-left "></i></p><br>' +
             '<p class="show-weixin-pic">' +
-            '<img src="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/weixin.jpg">' +
+            '<img src="https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg">' +
             '</p>' +
             '<p class="show-weixin-pic">欢迎关注我的微信公众号：zhyocean1314</p>' +
             '<p><i class="weiXinQuoteRight am-icon-quote-right "></i></p>' +
