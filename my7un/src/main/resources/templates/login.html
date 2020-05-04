@@ -70,6 +70,9 @@
                         <div class="login_error" th:if="${param.error}">
                             <span class="am-alert am-alert-secondary" data-am-alert style="margin-left: 15%;background-color: #d85a37;color: white;border-radius: 5px">用户名不存在或密码错误!</span>
                         </div>
+                        <div class="am-topbar-right" th:unless="${#httpServletRequest.remoteUser}">
+                            <a href="/register" class="am-btn am-btn-primary am-topbar-btn am-btn-sm" style="color: white">还没有？</a>
+                        </div>
                     </form>
 
                     <!-- 模态框（Modal） -->
