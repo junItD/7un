@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2019/11/1 13:21
  * Describe: 定义切面，拦截所有需要登录操作的controller接口
  */

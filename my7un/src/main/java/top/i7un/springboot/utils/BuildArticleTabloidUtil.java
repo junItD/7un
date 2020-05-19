@@ -1,7 +1,7 @@
 package top.i7un.springboot.utils;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/6/24 9:51
  * Describe: markdown截取文章生成摘要
  */

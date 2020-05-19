@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/6/6 20:03
  * Describe: 定制错误页面
  */

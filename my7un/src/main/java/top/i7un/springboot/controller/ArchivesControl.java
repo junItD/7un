@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/7/18 12:06
  * Describe: 归档
  */
@@ -47,7 +47,7 @@ public class ArchivesControl {
      */
     @GetMapping(value = "/getArchiveArticle", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getArchiveArticle(@RequestParam("archive") String archive,
-                                        @RequestParam("rows") int rows,
+                                         @RequestParam("rows") int rows,
                                         @RequestParam("pageNum") int pageNum){
         try {
             DataMap data = articleService.findArticleByArchive(archive, rows, pageNum);
@@ -56,5 +56,15 @@ public class ArchivesControl {
             log.error("Get archive article [{}] exception", archive, e);
         }
         return JsonResult.fail(CodeType.SERVER_EXCEPTION).toJSON();
+    }
+
+    public static void main(String[] args) {
+        ThreadLocal threadLocal = new ThreadLocal();
+        String s = new String("123");
+        String s2 = "234";
+        threadLocal.set(s);
+        ThreadLocal threadLocal2 = new ThreadLocal();
+        threadLocal2.set(s2);
+        System.out.println(threadLocal.get().toString());
     }
 }

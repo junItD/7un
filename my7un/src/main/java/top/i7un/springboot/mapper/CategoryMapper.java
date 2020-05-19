@@ -10,7 +10,7 @@ import top.i7un.springboot.model.Categories;
 import java.util.List;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/7/17 20:54
  * Describe: 分类sql
  */

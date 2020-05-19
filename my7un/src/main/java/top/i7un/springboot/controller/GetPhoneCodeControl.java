@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/6/4 15:03
  * Describe: 注册获得手机验证码
  */

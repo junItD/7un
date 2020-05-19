@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/7/5 16:21
  * Describe: 文章显示页面
  */

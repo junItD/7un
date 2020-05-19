@@ -3,7 +3,7 @@ package top.i7un.springboot.model;
 import lombok.Data;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2019/5/18 17:15
  * Describe: 返回统一的响应格式
  */

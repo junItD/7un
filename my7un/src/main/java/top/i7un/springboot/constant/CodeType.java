@@ -1,7 +1,7 @@
 package top.i7un.springboot.constant;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2019/11/18 15:51
  * Describe: 状态返回码
  */

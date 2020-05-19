@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/6/9 19:45
  * Describe: 阿里云连接密钥
  */

@@ -3,7 +3,7 @@ package top.i7un.springboot.model;
 import lombok.Data;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/7/18 11:52
  * Describe: 文章归档
  */

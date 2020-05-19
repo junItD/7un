@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/6/7 17:09
  * Describe: 错误页面跳转
  */

@@ -4,7 +4,7 @@ import top.i7un.springboot.model.ArticleLikesRecord;
 import top.i7un.springboot.utils.DataMap;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/7/7 15:48
  * Describe: 文章点赞记录业务操作
  */

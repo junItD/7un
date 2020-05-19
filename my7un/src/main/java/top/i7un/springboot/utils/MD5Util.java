@@ -3,7 +3,7 @@ package top.i7un.springboot.utils;
 import java.security.MessageDigest;
 
 /**
- * @author: zhangocean
+ * @author:  Noone
  * @Date: 2018/6/5 19:58
  * Describe: MD5加密工具
  */
