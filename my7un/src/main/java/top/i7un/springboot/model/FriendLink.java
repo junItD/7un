@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
  * Describe:
  */
 @Data
-@NoArgsConstructor
 public class FriendLink {
 
     private int id;

@@ -11,7 +11,6 @@ import java.util.List;
  * Describe: 用户实体类
  */
 @Data
-@NoArgsConstructor
 public class User {
 
     private int id;

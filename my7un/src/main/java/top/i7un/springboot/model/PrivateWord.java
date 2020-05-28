@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
  * Describe: 悄悄话
  */
 @Data
-@NoArgsConstructor
 public class PrivateWord {
 
     private int id;

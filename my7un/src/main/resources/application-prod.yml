@@ -1,0 +1,9 @@
+server:
+    port: 80
+spring:
+    datasource:
+        password: user_dbpass
+        url: jdbc:mysql://rm-2zev83tvb4y3n75ht125010.mysql.rds.aliyuncs.com/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: user_db
+    redis:
+        password: ''

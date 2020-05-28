@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
  * Describe: 标签
  */
 @Data
-@NoArgsConstructor
 public class Tag {
 
     private int id;

@@ -11,7 +11,6 @@ import java.io.Serializable;
  * Describe: 用户评论留言未读数
  */
 @Data
-@NoArgsConstructor
 public class UserReadNews implements Serializable{
 
     /**

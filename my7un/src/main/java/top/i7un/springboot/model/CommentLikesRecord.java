@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
  * Describe: 文章评论点赞记录
  */
 @Data
-@NoArgsConstructor
 public class CommentLikesRecord {
 
     private long id;

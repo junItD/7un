@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
  * Describe: 留言
  */
 @Data
-@NoArgsConstructor
 public class LeaveMessage {
 
     private int id;
