@@ -7,6 +7,12 @@
     <groupId>top.7un</groupId>
     <artifactId>parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../feign-server</module>
+        <module>../my7un-eureka</module>
+        <module>../my7un</module>
+        <module>../my7un-zuul</module>
+    </modules>
     <packaging>pom</packaging>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -28,6 +34,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
+        <!--feign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

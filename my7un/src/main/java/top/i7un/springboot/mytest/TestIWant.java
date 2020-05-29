@@ -11,21 +11,21 @@ import java.util.List;
  */
 @Controller
 public class TestIWant {
-    @GetMapping("/letCpuBusy")
-    public void letCpuBusy(){
-        int i=0;
-        while(true) {
-            i++;
-        }
-
-    }
-    private List<User> userlist=new ArrayList<>();
-
-    //堆区内存溢出
-    @GetMapping("/heapOver")
-    public void heapOverTest(){
-        while(true){
-            userlist.add(new User());
-        }
-    }
+//    @GetMapping("/letCpuBusy")
+//    public void letCpuBusy(){
+//        int i=0;
+//        while(true) {
+//            i++;
+//        }
+//
+//    }
+//    private List<User> userlist=new ArrayList<>();
+//
+//    //堆区内存溢出
+//    @GetMapping("/heapOver")
+//    public void heapOverTest(){
+//        while(true){
+//            userlist.add(new User());
+//        }
+//    }
 }

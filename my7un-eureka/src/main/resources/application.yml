@@ -3,7 +3,9 @@ server:
 
 eureka:
   client:
+  #不要向注册中心注册自己
     register-with-eureka: false
+    #禁止检索服务
     fetch-registry: false
     service-url:
       defaultZone: http://localhost:8761/eureka

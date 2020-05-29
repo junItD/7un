@@ -15,7 +15,6 @@
     <groupId>top.i7un</groupId>
     <artifactId>my7un</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
