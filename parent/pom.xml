@@ -13,6 +13,7 @@
         <module>../my7un</module>
         <module>../my7un-zuul</module>
         <module>../my7un-Hystrix</module>
+        <module>../my7un-ribbon</module>
     </modules>
     <packaging>pom</packaging>
     <parent>
