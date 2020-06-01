@@ -12,6 +12,7 @@
         <module>../my7un-eureka</module>
         <module>../my7un</module>
         <module>../my7un-zuul</module>
+        <module>../my7un-Hystrix</module>
     </modules>
     <packaging>pom</packaging>
     <parent>
