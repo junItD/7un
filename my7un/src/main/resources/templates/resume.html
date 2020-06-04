@@ -115,11 +115,12 @@
                                                         </div>
                         </div>
                     </div>
-                    <div class="myStory" >
+                    <!--这是左边的那块备注-->
+                    <div class="myRemark" >
                         <div class="bg-remark">
                             <div><a class="bg-myGirl-a" href="/mylove" target="_blank">备注</a></div>
                         </div>
-                        <div class="myStory-words">对于java开发来说页面渲染实在是太难了(T ^ T) <br/>页面效果有点low，请见谅啊 (￣▽￣)~*</div>
+                        <div class="myStory-words">对于java开发来说页面渲染实在是太难了(T ^ T) <br/><br>页面效果有点low，请见谅啊 (￣▽￣)~*<br/><br> 登录之后才可以看到我的手机号和邮箱哦<br/>或者也可以通过上面来加我的QQ微信</div>
                     </div>
 
                 </div>
@@ -136,37 +137,52 @@
                         <p class="MsoNormal" align="center" style="text-align:center;">
                             <h1 style="text-align: center">[赵峻]</h1>
                         </p>
+
                         <!--高度-->
                         <div class="myResume" >
                             <!--颜色-->
                             <div class="bg-resume">
                                 <!--字体-->
-                                <div><a class="bg-myGirl-a" href="/mylove" target="_blank">基本信息</a></div>
+                                <div><a class="bg-myGirl-a"  target="_blank">基本信息</a></div>
                             </div>
                         </div>
                         <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            <span>姓　</span> &nbsp;<span>名：</span> <span>赵峻</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>性</span> &nbsp;&nbsp;&nbsp;<span>别：</span>&nbsp;<span>男</span>
+                            <span>姓　</span> &nbsp;<span>名：</span> <span>赵峻</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span>性</span> &nbsp;&nbsp;&nbsp;<span>别：</span>&nbsp;<span>男</span>
                         </p>
                         <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            出生年月<span>：</span>1993年11月&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span>民</span> &nbsp;&nbsp;&nbsp;<span>族：</span> <span>满族</span>
+                            出生年月<span>：</span>1993年11月&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;<span>民</span> &nbsp;&nbsp;&nbsp;<span>族：</span> <span>满族</span>
                         </p>
                         <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            籍	&nbsp;<span>贯：河北承德</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>现</span> <span>住</span> <span>地：</span> <span>北京</span>
+                            籍	&nbsp;<span>贯：河北承德</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>现</span> <span>住</span> <span>地：</span> <span>北京</span>
                         </p>
                         <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            毕业学校：河北民族师范学院&nbsp; &nbsp; &nbsp;学	&nbsp;<span>历：</span> <span>本科</span> &nbsp;
+                            毕业学校：河北民族师范学院&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;学	&nbsp;<span>历：</span> <span>本科</span> &nbsp;
                         </p>
                         <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            专	&nbsp;<span>业：计算机科学与技术</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>工作经验：</span>&nbsp;4年
+                            专	&nbsp;<span>业：计算机科学与技术</span>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp;<span>工作经验：</span>&nbsp;4年
                         </p>
-                        <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            手	&nbsp;<span>机：</span>18831450403&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>邮箱：</span>18831450403@163.com
+                        <p class="MsoNormal" style="text-indent:18.0000pt;" th:if="${#httpServletRequest.remoteUser}">
+                            手	&nbsp;<span>机：</span>18831450403&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+
+                            <span>邮箱：</span>18831450403@163.com
+                        </p>
+                        <p class="MsoNormal" style="text-indent:18.0000pt;" th:if="!${#httpServletRequest.remoteUser}" >
+                            手	&nbsp;<span>机：</span>188****0403&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                            <span>邮箱：</span>188****0403@163.com  (登录之后就可以看到我了哦)
                         </p>
                         </strong>
                         </p>
                         <div style="text-align:justify;">
                         </div>
                         <p>
+                            <!--高度-->
+                        <div class="myResume" >
+                            <!--颜色-->
+                            <div class="bg-resume">
+                                <!--字体-->
+                                <div><a class="bg-myGirl-a"  target="_blank">工作经历</a></div>
+                            </div>
+                        </div>
                             <br />
                         </p>
 

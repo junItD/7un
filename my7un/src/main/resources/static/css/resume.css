@@ -198,6 +198,13 @@
     border-radius: 10px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+.myRemark{
+    margin-top: 20px;
+    height: 200px;
+    margin-left: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
 .myResume{
     margin-top: 0px;
     height: 25px;
