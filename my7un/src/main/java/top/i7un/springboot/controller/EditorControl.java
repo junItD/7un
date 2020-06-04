@@ -64,9 +64,9 @@ public class EditorControl {
             String username = principal.getName();
 
             String phone = userService.findPhoneByUsername(username);
-            if(!userService.isSuperAdmin(phone)){
-                return JsonResult.fail(CodeType.PUBLISH_ARTICLE_NO_PERMISSION).toJSON();
-            }
+//            if(!userService.isSuperAdmin(phone)){
+//                return JsonResult.fail(CodeType.PUBLISH_ARTICLE_NO_PERMISSION).toJSON();
+//        }
 
             //获得文章html代码并生成摘要
             BuildArticleTabloidUtil buildArticleTabloidUtil = new BuildArticleTabloidUtil();
@@ -119,7 +119,7 @@ public class EditorControl {
      * @return
      */
     @GetMapping(value = "/canYouWrite", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = "ROLE_SUPERADMIN")
     public String canYouWrite(@AuthenticationPrincipal Principal principal){
 
         try {
@@ -154,7 +154,7 @@ public class EditorControl {
      * 获得是否有未发布的草稿文章或是修改文章
      */
     @GetMapping(value = "/getDraftArticle", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = "ROLE_SUPERADMIN")
     public String getDraftArticle(HttpServletRequest request){
         try {
             String id = (String) request.getSession().getAttribute("id");

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>i夋夋爬上云端</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="keywords" content="博客,个人,学习,IT,生活,程序猿,springboot,java,后端">
+    <meta name="description" content="high起来。">
+
+    <link rel="icon" type="image/x-icon" href="https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg">
+    <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link href="https://lib.baomitu.com/font-awesome/5.8.0/css/fontawesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/resume.css">
+    <link rel="stylesheet" href="css/plugs_paging.css">
+
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="js/lastUrl.js"></script>
+    <script src="https://lib.baomitu.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <!--主页头部含有小屏幕时名片，不应使用共有头部-->
+    <div class="header">
+        <div class="am-topbar" style="margin-bottom: 0">
+            <h1 class="am-topbar-brand">
+                <a href="/" class="blogTitleName"><img src="https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg" class="imgStyle">i夋夋爬上云端</a>
+            </h1>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" style="background-color: #CCCCCC;border-color: white;border-radius: 6px" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+            <div id="personal-card" class="am-dropdown am-show-md-down" data-am-dropdown style="float: right">
+                <button id="personal-card-btn" class="am-btn am-btn-success am-dropdown-toggle" style="padding: 0"><img src="https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg"><span class="am-icon-caret-down"></span></button>
+                <div class="am-dropdown-content">
+                    <div class="personal-card-show" style="text-align: center">
+                        <div class="personal-card-show-img">
+                            <img src="https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
+                <ul class="am-nav am-nav-pills am-topbar-nav">
+                    <li><a class="top_bar" href="/" style="cursor: pointer;"><span class="am-icon-home"></span>&nbsp;首页</a></li>
+                                        <li><a class="top_bar" href="/index" style="cursor: pointer;"><span class="am-icon-th"></span>&nbsp;去博客看看</a></li>
+                </ul>
+
+
+                <div class="am-topbar-right" th:if="${#httpServletRequest.remoteUser}">
+                    <div class="am-dropdown" data-am-dropdown="{boundary: '.am-topbar'}">
+                        <button class="personalSpace am-btn am-btn-secondary am-topbar-btn am-btn-sm am-dropdown-toggle" data-am-dropdown-toggle><span sec:authentication="name"></span> <span class="am-icon-caret-down"></span></button>
+                        <ul class="am-dropdown-content">
+                            <li><a href="/user" sec:authorize="hasRole('ROLE_USER')">个人主页</a></li>
+                            <li><a href="/superadmin" sec:authorize="hasRole('ROLE_SUPERADMIN')">网站后台管理</a></li>
+                            <li><a href="/user" class="news">消息<span class="newsNum am-badge am-badge-danger"></span></a></li>
+                            <li><a class="feedbackClick">反馈</a></li>
+                            <hr style="margin: 10px 0 5px 0;">
+                            <li><a th:href="@{/logout}">退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="am-topbar-right" th:unless="${#httpServletRequest.remoteUser}">
+                    <a href="/register" class="am-btn am-btn-primary am-topbar-btn am-btn-sm" style="color: white">注册</a>
+                </div>
+                <div class="am-topbar-right" th:unless="${#httpServletRequest.remoteUser}">
+                    <a href="/login" class="loginBtn am-btn am-btn-primary am-topbar-btn am-btn-sm" style="color: white">登录</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--页面主体-->
+    <div id="main" style="margin-top: 16px">
+        <div class="am-g">
+            <div class="am-u-sm-12 am-u-lg-3 am-hide-md-down">
+                <div id="left">
+                    <div class="myCard">
+                        <div class="am-g">
+                            <div class="am-u-sm-5">
+                                <div class="img-title">
+                                    <img class="img" src="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/loading.gif" data-src="https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg">
+                                </div>
+                            </div>
+                            <div class="am-u-sm-7" style="padding: 0 20px 0 0;">
+                                <div class="img-words">
+                                    <h3 id="name">峻仔</h3>
+                                    <small style="font-size: 13px;color: #808080ad">欢迎观看我的简历</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                                                <div id="connection" style="font-size: 14px">
+                                                    <span style="color: #009688">↓↓↓能按哦</span><br>
+                                                    <div id="follow">
+                                                    </div>
+                                                </div>
+                        <hr>
+                        <div class="icons-row">
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <a href="https://github.com/junItD/7un" target="_blank" class="am-icon-github am-icon-md " title="GitHub" data-am-popover="{content: 'GitHub', trigger: 'hover focus'}"></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href="img/weixin.jpg" class="am-icon-weixin am-icon-md" target="_blank" title="微信" data-am-popover="{content: '微信:347436604', trigger: 'hover focus'}"></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href="img/qq.png" target="_blank" class="am-icon-qq am-icon-md" title="qq" data-am-popover="{content: 'QQ:347436604', trigger: 'hover focus'}"></a>
+                                                            </div>
+                                                        </div>
+                        </div>
+                    </div>
+                    <div class="myStory" >
+                        <div class="bg-remark">
+                            <div><a class="bg-myGirl-a" href="/mylove" target="_blank">备注</a></div>
+                        </div>
+                        <div class="myStory-words">对于java开发来说页面渲染实在是太难了(T ^ T) <br/>页面效果有点low，请见谅啊 (￣▽￣)~*</div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="showArticle am-u-sm-12 am-u-lg-6">
+                <div class="articles">
+                    <div class="center">
+                        <p class="MsoNormal" align="center" style="text-align:center;text-indent:2em;">
+                            <br />
+                        </p>
+                        <p class="MsoNormal" align="center" style="text-align:left;">
+                            <strong>
+                        <p class="MsoNormal" align="center" style="text-align:center;">
+                            <h1 style="text-align: center">[赵峻]</h1>
+                        </p>
+                        <!--高度-->
+                        <div class="myResume" >
+                            <!--颜色-->
+                            <div class="bg-resume">
+                                <!--字体-->
+                                <div><a class="bg-myGirl-a" href="/mylove" target="_blank">基本信息</a></div>
+                            </div>
+                        </div>
+                        <p class="MsoNormal" style="text-indent:18.0000pt;">
+                            <span>姓　</span> &nbsp;<span>名：</span> <span>赵峻</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>性</span> &nbsp;&nbsp;&nbsp;<span>别：</span>&nbsp;<span>男</span>
+                        </p>
+                        <p class="MsoNormal" style="text-indent:18.0000pt;">
+                            出生年月<span>：</span>1993年11月&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span>民</span> &nbsp;&nbsp;&nbsp;<span>族：</span> <span>满族</span>
+                        </p>
+                        <p class="MsoNormal" style="text-indent:18.0000pt;">
+                            籍	&nbsp;<span>贯：河北承德</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>现</span> <span>住</span> <span>地：</span> <span>北京</span>
+                        </p>
+                        <p class="MsoNormal" style="text-indent:18.0000pt;">
+                            毕业学校：河北民族师范学院&nbsp; &nbsp; &nbsp;学	&nbsp;<span>历：</span> <span>本科</span> &nbsp;
+                        </p>
+                        <p class="MsoNormal" style="text-indent:18.0000pt;">
+                            专	&nbsp;<span>业：计算机科学与技术</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>工作经验：</span>&nbsp;4年
+                        </p>
+                        <p class="MsoNormal" style="text-indent:18.0000pt;">
+                            手	&nbsp;<span>机：</span>18831450403&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>邮箱：</span>18831450403@163.com
+                        </p>
+                        </strong>
+                        </p>
+                        <div style="text-align:justify;">
+                        </div>
+                        <p>
+                            <br />
+                        </p>
+
+
+                    </div>
+
+            </div>
+
+
+
+                <!--右边栏-->
+            <div class="am-u-sm-12 am-u-lg-3">
+                <div id="right">
+
+
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<script src="js/resume.js"></script>
+<script src="js/all.js"></script>
+<script src="js/plugs_paging.js"></script>
+</body>
+</html>

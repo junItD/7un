@@ -33,13 +33,25 @@ public class BackControl {
      * 跳转首页
      */
     @GetMapping("/")
-    public String index(HttpServletRequest request, HttpServletResponse response){
+    public String index2(HttpServletRequest request, HttpServletResponse response){
         response.setHeader("Access-Control-Allow-Origin", "*");
         //判断是否有需要回跳的url，有则将需要回跳的url保存在响应头中
         response.setHeader("lastUrl", (String) request.getSession().getAttribute("lastUrl"));
+        return "indexresume";
+    }
+    @GetMapping("/index")
+    public String index(){
         return "index";
     }
 
+    /**
+     * 跳转简历
+     * @return
+     */
+    @GetMapping("/resume")
+    public String resume(){
+        return "resume";
+    }
     /**
      * 跳转我的女孩页
      */

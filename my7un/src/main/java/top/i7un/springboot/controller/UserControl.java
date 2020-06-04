@@ -232,7 +232,7 @@ public class UserControl {
      * 获得用户未读消息
      */
     @PostMapping(value = "/getUserNews", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = "ROLE_SUPERADMIN")
     public String getUserNews(@AuthenticationPrincipal Principal principal){
         String username = principal.getName();
         try {
