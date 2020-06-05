@@ -118,9 +118,15 @@
                     <!--这是左边的那块备注-->
                     <div class="myRemark" >
                         <div class="bg-remark">
-                            <div><a class="bg-myGirl-a" href="/mylove" target="_blank">备注</a></div>
+                            <div><a class="bg-myGirl-a"  target="_blank">备注</a></div>
                         </div>
-                        <div class="myStory-words">对于java开发来说页面渲染实在是太难了(T ^ T) <br/><br>页面效果有点low，请见谅啊 (￣▽￣)~*<br/><br> 登录之后才可以看到我的手机号和邮箱哦<br/>或者也可以通过上面来加我的QQ微信</div>
+                        <div class="myStory-words">对于java开发来说页面渲染实在是太难了(T ^ T) <br/><br>页面效果有点low，请见谅哈 (￣▽￣)~*<br/><br> 登录之后才可以看到我的手机号和邮箱哦<br/>或者也可以通过上面来加我的QQ微信</div>
+                    </div>
+                    <div class="myRead" >
+                        <div class="bg-remark">
+                            <div><a class="bg-myGirl-a" target="_blank">观看须知</a></div>
+                        </div>
+                        <div class="myRead-words">1、本页面没有采用响应式布局，在不同设备上可能有一定差别，将就着看<br/><br>2、登录后可以查看手机号 邮箱 及下载附件简历 如果需要请登录<br/><br> 3、登录时密码已做加密处理 但仍 <span><font color="#a52a2a">不建议</font></span> 使用常用密码作为本系统的登录密码 <s>你懂得</s><br/><br>4、如果不想登录可以通过上方按钮来加我的QQ微信</div>
                     </div>
 
                 </div>
@@ -146,30 +152,28 @@
                                 <div><a class="bg-myGirl-a"  target="_blank">基本信息</a></div>
                             </div>
                         </div>
-                        <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            <span>姓　</span> &nbsp;<span>名：</span> <span>赵峻</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span>性</span> &nbsp;&nbsp;&nbsp;<span>别：</span>&nbsp;<span>男</span>
-                        </p>
-                        <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            出生年月<span>：</span>1993年11月&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;<span>民</span> &nbsp;&nbsp;&nbsp;<span>族：</span> <span>满族</span>
-                        </p>
-                        <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            籍	&nbsp;<span>贯：河北承德</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span>现</span> <span>住</span> <span>地：</span> <span>北京</span>
-                        </p>
-                        <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            毕业学校：河北民族师范学院&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;学	&nbsp;<span>历：</span> <span>本科</span> &nbsp;
-                        </p>
-                        <p class="MsoNormal" style="text-indent:18.0000pt;">
-                            专	&nbsp;<span>业：计算机科学与技术</span>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp;<span>工作经验：</span>&nbsp;4年
-                        </p>
-                        <p class="MsoNormal" style="text-indent:18.0000pt;" th:if="${#httpServletRequest.remoteUser}">
-                            手	&nbsp;<span>机：</span>18831450403&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-
-                            <span>邮箱：</span>18831450403@163.com
-                        </p>
-                        <p class="MsoNormal" style="text-indent:18.0000pt;" th:if="!${#httpServletRequest.remoteUser}" >
-                            手	&nbsp;<span>机：</span>188****0403&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                            <span>邮箱：</span>188****0403@163.com  (登录之后就可以看到我了哦)
-                        </p>
+                        <div class="sc">
+                           <span>姓名：赵峻</span>    <span>&nbsp;</span> <span>性别：男</span>
+                        </div>
+                        <div class="sc">
+                            <span>出生年月：1993年11月</span>    <span>&nbsp;</span> <span>民族：满</span>
+                        </div>
+                        <div class="sc">
+                            <span>籍贯：河北承德</span>    <span>&nbsp;</span> <span>现住址：北京</span>
+                        </div>
+                        <div class="sc">
+                            <span>学校：河北民族师范学院</span>    <span>&nbsp;</span> <span>学历：本科</span>
+                        </div>
+                        <div class="sc">
+                            <span>专业：计算机科学与技术</span>    <span>&nbsp;</span> <span class="gzjy">工作经验：4年</span>
+                        </div>
+                        <div class="sc" th:if="${#httpServletRequest.remoteUser}">
+                            <span>手机：18831450403</span>    <span>&nbsp;</span> <span>邮箱：18831450403@163.com</span>
+                        </div>
+                        <div class="sc" th:if="!${#httpServletRequest.remoteUser}">
+                            <span>手机：188****0403</span>    <span>&nbsp;</span> <span>邮箱：188***0403@163.com</span>
+                            <div class="te">登录之后就可以看到手机邮箱信息了哦 &nbsp;  (〃'▽'〃) </div>
+                        </div>
                         </strong>
                         </p>
                         <div style="text-align:justify;">
@@ -187,41 +191,40 @@
                         </p>
                         <div class="works">
                             <div class="workCenter">
-                                <div class="empty">
-                                    <header class="article-header">
-                                        <h1 itemprop="name">
-                                            <a class="article-title" href="#" target="_blank">&nbsp;</a>
-                                        </h1>
-                                        <div class="article-meta row">
-                                            <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-                                        </div>
-                                    </header>
-                                    <div class="article-entry" style="height: 200px">
-                                    </div>
-                                    <div class="read-all">
-                                        <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
-                                    </div>
-                                    <hr>
-                                    <div class="article-tags">
-                                        <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                                        <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                                        <!--<span class="likes"><i class="am-icon-heart"> 个喜欢</i></span>-->
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
                     </div>
 
             </div>
-
+            </div>
 
 
                 <!--右边栏-->
             <div class="am-u-sm-12 am-u-lg-3">
                 <div id="right">
-
+                    <div class="widget">
+                        <div class="bg-danger">
+                            <div class="zhy-info">
+                                <i class="am-icon-quote-left" style="float: left"></i><br>
+                                <div class="zhy-info-day">
+                                    <p>每个优秀的人</p>
+                                    <p>都有一段沉默的时光</p>
+                                    <p>那段时光</p>
+                                    <p>是付出了很多努力</p>
+                                    <p>却得不到结果的日子</p>
+                                    <p>我们把它叫做</p>
+                                    <p>扎根</p>
+                                    <p style="text-align: right;padding-top: 10px">--- 峻仔</p>
+                                </div>
+                                <i class="am-icon-quote-right" style="float: right"></i>
+                                <div class="zhy-info-opinion">
+                                    <p><strong>Welcome to my resume！！！</strong></p>
+                                    <p style="line-height: 25px">平淡对待一切<br>努力做最好的自己</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>

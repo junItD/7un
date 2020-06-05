@@ -6,7 +6,7 @@
         box-shadow: 0 2px 5px 0 rgba(33, 22, 22, 0.2), 0 2px 10px 0 rgba(0,0,0,0.12);
     }
     #right{
-        margin-top: 7px;
+        margin-top: 40px;
         margin-right: 25px;
         transform: translateY(-40px);
     }
@@ -198,9 +198,42 @@
     border-radius: 10px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+.sc {
+    margin: 10px 0px 10px 30px;
+    list-style: none;
+    font-size: 15px;
+    white-space: nowrap;
+}
+.te {
+    margin: 10px 0px 10px 30px;
+    width: 600px;
+    list-style: none;
+    font-size: 15px;
+    color: #9966FF;
+    text-align: center;
+
+}
+.sc li {
+    list-style: none;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+}
+
+.sc span {
+    width: 32%;
+    text-align: left;
+    display: inline-block;
+}
 .myRemark{
     margin-top: 20px;
     height: 200px;
+    margin-left: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.myRead{
+    margin-top: 20px;
+    height: 400px;
     margin-left: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -220,6 +253,9 @@
 }
 .myStory-words{
     text-align: center;
+    margin-top: 5px;
+}
+.myRead-words{
     margin-top: 5px;
 }
 .tag-cloud{

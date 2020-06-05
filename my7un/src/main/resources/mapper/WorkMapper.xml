@@ -5,6 +5,7 @@
     <resultMap id="myWork" type="top.i7un.springboot.model.Work">
         <id property="id" column="id"/>
         <result property="company" column="company"/>
+        <result property="companyAbb" column="company_abb"/>
         <result property="department" column="department"/>
         <result property="beginTime" column="begin_time"/>
         <result property="endTime" column="end_time"/>
@@ -21,7 +22,7 @@
     </resultMap>
 
     <select id="selectAllWork" resultMap="myWork">
-        select w.*,wr.begin_time beginT,wr.id id1 ,wr.end_time endT ,wr.*  from t_work w join t_work_record wr on w.id = wr.work_id
+        select w.*,wr.begin_time beginT,wr.id id1 ,wr.end_time endT ,wr.*  from t_work w left join t_work_record wr on w.id = wr.work_id
     </select>
 
     <select id="selectWork" resultType="top.i7un.springboot.model.Work">

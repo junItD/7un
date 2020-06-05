@@ -10,6 +10,12 @@
         text-align: center;
         transform: translateX(-70px);
     }
+    .wordw{
+        margin-top: 150px;
+        margin-left: 150px;
+        text-align: center;
+        transform: translateX(-70px);
+    }
     .yesterday{
         border-radius: 1000px;
         display: inline-block;

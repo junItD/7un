@@ -1,87 +1,7 @@
 
-//网站最后更新时间（版本更新需更改）
-var siteLastUpdateTime = '2020年4月22日19点';
-
 //网站开始时间
 var siteBeginRunningTime = '2018-07-25 20:00:00';
 
-// 广告上下滚动
-function getStyle(obj,name){
-    if(obj.currentStyle)
-    {
-        return obj.currentStyle[name];
-    }
-    else
-    {
-        return getComputedStyle(obj,false)[name];
-    }
-}
-function startMove(obj,json,doEnd){
-    clearInterval(obj.timer);
-    obj.timer=setInterval(function(){
-        var oStop=true;
-        for(var attr in json)
-        {
-            var cur=0;
-            if(attr=='opacity')
-            {
-                cur=Math.round(parseFloat(getStyle(obj,attr))*100);
-            }
-            else
-            {
-                cur=parseInt(parseInt(getStyle(obj,attr)));
-            }
-            var speed=(json[attr]-cur)/6;
-            speed=speed>0?Math.ceil(speed):Math.floor(speed);
-            if(cur!=json[attr])
-            {
-                oStop=false;
-            }
-            if(attr=='opacity')
-            {
-                obj.style.filter='alpha(opacity:'+(speed+cur)+')';
-                obj.style.opacity=(speed+cur)/100;
-            }
-            else
-            {
-                obj.style[attr]=speed+cur+'px';
-            }
-        }
-        if(oStop)
-        {
-            clearInterval(obj.timer);
-            if(doEnd) doEnd();
-        }
-    },30);
-}
-window.onload=function(){
-    var oDiv=document.getElementsByClassName('roll')[0];
-    var oUl=oDiv.getElementsByTagName('ul')[0];
-    var aLi=oUl.getElementsByTagName('li');
-
-    var now=0;
-    for(var i=0;i<aLi.length;i++)
-    {
-        aLi[i].index=i;
-    }
-
-    function next(){
-        now++;
-        if(now==aLi.length)
-        {
-            now=0;
-        }
-        startMove(oUl,{top:-26*now})
-    }
-    //设置广播滚动时间
-    var timer=setInterval(next,3000);
-    oDiv.onmouseover=function(){
-        clearInterval(timer);
-    };
-    oDiv.onmouseout=function(){
-        timer=setInterval(next,3000);
-    }
-};
 
 //填充文章
 function putInArticle(data) {
@@ -91,26 +11,36 @@ function putInArticle(data) {
             var workCenter = $('<div class="workCenter">' +
                 '<header class="article-header">' +
                 '<h1 itemprop="name">' +
-                '<a class="article-title" href="' + obj['id'] + '" target="_blank">' + obj['id'] + '</a>' +
+                '<a class="article-title" href="' + obj['id'] + '" target="_blank">' + obj['company'] + '</a>' +
                 '</h1>' +
                 '<div class="article-meta row">' +
-                '<span class="articleType am-badge am-badge-success">' + obj['company'] + '</span>' +
+                // '<span class="articleType am-badge am-badge-success">' + obj['postName'] + '</span>' +
                 '<div class="articlePublishDate">' +
-                '<i class="am-icon-calendar"><a class="linkColor" href="/archives?archive=' + obj['beginTime'] + '"> ' + obj['beginTime'] + '</a></i>' +
+                '<i class="am-icon-calendar"> &nbsp;' + obj['beginTime'] + '</i>' +
+                '<i >~ </i>' +
+                '<i>' + obj['endTime'] + '</i>' +
+                '<i">   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</i>' +
                 '</div>' +
+                // '<br>'+
                 '<div class="originalAuthor">' +
-                '<i class="am-icon-user"> ' + obj['department'] + '</i>' +
+                '<i class="am-icon-th"> 所属部门 :</i>' +
+                '<i"> ' + obj['department'] + '</i>' +
+                '<i">   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</i>' +
                 '</div>' +
+                // '<br>'+
                 '<div class="categories">' +
-                '<i class="am-icon-folder"><a class="linkColor" href="/categories?category=' + obj['whyLeave'] + '"> ' + obj['whyLeave'] + '</a></i>' +
+                '<i class="am-icon-arrow-circle-o-up"> 离职原因 :</i>' +
+                '<i > ' + obj['whyLeave'] + '</a></i>' +
                 '</div>' +
                 '</div>' +
                 '</header>' +
-                '<div class="article-entry">' +
-                obj['postName'] +
-                '</div>' +
+                // '<div class="article-entry">' +
+                // obj['postName'] +
+                // '</div>' +
+                '<br>'+
                 '<div class="read-all">' +
-                '<a href="' + obj['id'] + '" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>' +
+                '<a href="' + obj['id'] + '" target="_blank">查看我在<span style="color: #a4241f;"> '+obj['companyAbb']+' </span> 的项目经历 <i class="am-icon-angle-double-right"></i></a>' +
+                '<br>'+
                 '</div>' +
                 '<hr>' +
                 '<div class="article-tags">' +
@@ -118,13 +48,6 @@ function putInArticle(data) {
                 '</div>' +
                 '</div>');
             works.append(workCenter);
-            var articleTags = $('.article-tags');
-            for(var i=0;i<obj['articleTags'].length;i++){
-                var articleTag = $('<i class="am-icon-tag"><a class="tag" href="/tags?tag=' + obj['articleTags'][i] + '"> ' + obj['articleTags'][i] + '</a></i>');
-                articleTags.eq(index).append(articleTag);
-            }
-            // var likes = $('<span class="likes"><i class="am-icon-heart"> ' + obj['likes'] + '个喜欢</i></span>');
-            // articleTags.eq(index).append(likes);
     })
 
 }
@@ -155,6 +78,32 @@ function ajaxFirst(currentPage) {
 
 
 ajaxFirst(1);
+// getTimeDiff();
+var timeDiff;
+timeDiff = getTimeDiff();
+//获取工作时长
+function getTimeDiff() {
+    //加载时请求
+    $.ajax({
+        type: 'POST',
+        url: '/getTimeDiff',
+        dataType: 'json',
+        success: function (data) {
+            if(data['status'] == 103){
+                dangerNotice(data['message'] + " 获得文章信息失败");
+            } else {
+                //放入数据
+                timeDiff = data['data'];
+                $('.gzjy').empty();
+                var gzjy = $('.gzjy');
+                gzjy.append('搬砖时长：').append(timeDiff);
+                scrollTo(0,0);//回到顶部
+            }
+        }
+    });
+    return timeDiff;
+}
+
 
 
 //网站运行时间
