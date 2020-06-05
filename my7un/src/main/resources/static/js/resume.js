@@ -88,35 +88,34 @@ function putInArticle(data) {
     $('.works').empty();
     var works = $('.works');
     $.each(data, function (index, obj) {
-        if(index != (data.length) - 1){
             var workCenter = $('<div class="workCenter">' +
                 '<header class="article-header">' +
                 '<h1 itemprop="name">' +
                 '<a class="article-title" href="' + obj['id'] + '" target="_blank">' + obj['id'] + '</a>' +
-                // '</h1>' +
-                // '<div class="article-meta row">' +
-                // '<span class="articleType am-badge am-badge-success">' + obj['articleType'] + '</span>' +
-                // '<div class="articlePublishDate">' +
-                // '<i class="am-icon-calendar"><a class="linkColor" href="/archives?archive=' + obj['publishDate'] + '"> ' + obj['publishDate'] + '</a></i>' +
-                // '</div>' +
-                // '<div class="originalAuthor">' +
-                // '<i class="am-icon-user"> ' + obj['originalAuthor'] + '</i>' +
-                // '</div>' +
-                // '<div class="categories">' +
-                // '<i class="am-icon-folder"><a class="linkColor" href="/categories?category=' + obj['articleCategories'] + '"> ' + obj['articleCategories'] + '</a></i>' +
-                // '</div>' +
-                // '</div>' +
-                // '</header>' +
-                // '<div class="article-entry">' +
-                // obj['articleTabloid'] +
-                // '</div>' +
-                // '<div class="read-all">' +
-                // '<a href="' + obj['thisArticleUrl'] + '" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>' +
-                // '</div>' +
-                // '<hr>' +
-                // '<div class="article-tags">' +
-                //
-                // '</div>' +
+                '</h1>' +
+                '<div class="article-meta row">' +
+                '<span class="articleType am-badge am-badge-success">' + obj['company'] + '</span>' +
+                '<div class="articlePublishDate">' +
+                '<i class="am-icon-calendar"><a class="linkColor" href="/archives?archive=' + obj['beginTime'] + '"> ' + obj['beginTime'] + '</a></i>' +
+                '</div>' +
+                '<div class="originalAuthor">' +
+                '<i class="am-icon-user"> ' + obj['department'] + '</i>' +
+                '</div>' +
+                '<div class="categories">' +
+                '<i class="am-icon-folder"><a class="linkColor" href="/categories?category=' + obj['whyLeave'] + '"> ' + obj['whyLeave'] + '</a></i>' +
+                '</div>' +
+                '</div>' +
+                '</header>' +
+                '<div class="article-entry">' +
+                obj['postName'] +
+                '</div>' +
+                '<div class="read-all">' +
+                '<a href="' + obj['id'] + '" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>' +
+                '</div>' +
+                '<hr>' +
+                '<div class="article-tags">' +
+
+                '</div>' +
                 '</div>');
             works.append(workCenter);
             var articleTags = $('.article-tags');
@@ -126,7 +125,6 @@ function putInArticle(data) {
             }
             // var likes = $('<span class="likes"><i class="am-icon-heart"> ' + obj['likes'] + '个喜欢</i></span>');
             // articleTags.eq(index).append(likes);
-        }
     })
 
 }
