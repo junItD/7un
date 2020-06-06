@@ -15,6 +15,7 @@ public class User {
 
     private int id;
 
+    private String company;
     /**
      * 手机号
      */

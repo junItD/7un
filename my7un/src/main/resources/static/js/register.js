@@ -203,6 +203,7 @@
         // var auth_code_value = $("#auth_code").val();
         var username_value = $("#username").val();
         var password_value = $("#password").val();
+        var company = $("#company").val();
         var gender = $(".radio_input input");
         if(gender[0].checked){
             gender_value = "male";
@@ -218,6 +219,7 @@
                 data: {
                     "phone":phone_value,
                     // "authCode":auth_code_value,
+                    "company":company,
                     "username":username_value,
                     "password":password_value,
                     "gender":gender_value

@@ -33,7 +33,7 @@ public interface UserMapper {
     @Select("select username from user where id=#{id}")
     String findUsernameById(int id);
 
-    @Insert("insert into user(phone,username,password,gender,avatarImgUrl) values(#{phone},#{username},#{password},#{gender},#{avatarImgUrl})")
+    @Insert("insert into user(phone,username,password,gender,avatarImgUrl,company) values(#{phone},#{username},#{password},#{gender},#{avatarImgUrl},#{company})")
     void save(User user);
 
     @Select("select username from user where phone=#{phone}")
