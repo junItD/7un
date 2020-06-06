@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * Created by Noone on 2020/5/29.
  */
-@FeignClient(name = "FEIGN-SERVER", fallback = HelloRemoteHystrix.class)
+//@FeignClient(name = "FEIGN-SERVER", fallback = HelloRemoteHystrix.class)
 public interface HelloFeign {
 
     @RequestMapping("/testMyFeign/hello")

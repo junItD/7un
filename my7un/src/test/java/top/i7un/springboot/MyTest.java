@@ -1,6 +1,5 @@
 package top.i7un.springboot;
 
-import com.netflix.discovery.converters.Auto;
 import freemarker.template.TemplateException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
