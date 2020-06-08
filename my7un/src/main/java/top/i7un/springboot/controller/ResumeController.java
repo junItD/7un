@@ -3,6 +3,9 @@ package top.i7un.springboot.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.i7un.springboot.constant.CodeType;
@@ -10,8 +13,12 @@ import top.i7un.springboot.service.ResumeService;
 import top.i7un.springboot.utils.DataMap;
 import top.i7un.springboot.utils.JsonResult;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Noone on 2020/6/4.
@@ -27,7 +34,7 @@ public class ResumeController {
     public String getWork(){
         try {
             DataMap data = resumeService.findAllwork();
-            System.out.println(JsonResult.build(data).toJSON());
+//            System.out.println(JsonResult.build(data).toJSON());
             return JsonResult.build(data).toJSON();
         } catch (Exception e) {
             log.error("工作信息获取失败", e);
@@ -44,4 +51,5 @@ public class ResumeController {
         DataMap<Object> objectDataMap = DataMap.success().setData(timeDiff);
         return JsonResult.build(objectDataMap).toJSON();
     }
+
 }

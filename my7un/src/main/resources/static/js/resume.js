@@ -39,7 +39,7 @@ function putInArticle(data) {
                 // '</div>' +
                 '<br>'+
                 '<div class="read-all">' +
-                '<a href="' + obj['id'] + '" target="_blank">查看我在<span style="color: #a4241f;"> '+obj['companyAbb']+' </span> 的项目经历 <i class="am-icon-angle-double-right"></i></a>' +
+                '<a href=/getWorkRecordById/' + obj['id'] + ' target="_blank">查看我在<span style="color: #a4241f;"> '+obj['companyAbb']+' </span> 的项目经历 <i class="am-icon-angle-double-right"></i></a>' +
                 '<br>'+
                 '</div>' +
                 '<hr>' +
