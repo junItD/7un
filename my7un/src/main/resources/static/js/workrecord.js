@@ -6,19 +6,7 @@ function putInArticle(data) {
     $('.workinfo').empty();
     var works = $('.workinfo');
     $.each(data, function (index, obj) {
-        /*<section data-am-scrollspy="{animation: 'slide-left'}">
-                                    <span class="point-time point-purple"></span>
-                                    <time datetime="2019-04">
-                                        <span>2019/04/07</span>
-                                    </time>
-                                    <aside>
-                                        <p class="things">不知道该说什么</p>
-                                        <p class="brief"><span class="text-yello">
-                                                斯人如彩虹，遇见方知有。很多事情，真的是身不由己。
-                                            </span></p>
-                                    </aside>
-                                </section>*/
-            var workCenter = $('<section data-am-scrollspy="{animation: \'slide-left\'}">' +
+            var workCenter = $('<section>' +
                 '<span class="point-time point-purple"></span>' +
                 '<time datetime="'+ obj['beginTime']+'">' +
                 '<span> '+obj['beginTime']+' </span>' +
