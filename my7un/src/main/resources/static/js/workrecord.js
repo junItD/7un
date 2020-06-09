@@ -9,7 +9,7 @@ function putInArticle(data) {
             var workCenter = $('<section>' +
                 '<span class="point-time point-purple"></span>' +
                 '<time datetime="'+ obj['beginTime']+'">' +
-                '<span> '+obj['beginTime']+' </span>' +
+                '<span> '+obj['beginTime']+' ~ '+obj['endTime']+'</span>' +
                 '</time>' +
                 ' <aside>' +
                 '<p class="things">'+obj['project']+'</p>' +

@@ -15,8 +15,8 @@ public class WorkRecord {
         private Long workId;
         private String project;
         private String projetDetail;
-        @JSONField(format="yyyy-MM")
+        @JSONField(format="yyyy年MM月")
         private Date beginTime;
-        @JSONField (format="yyyy-MM")
+        @JSONField (format="yyyy年MM月")
         private Date endTime;
 }
