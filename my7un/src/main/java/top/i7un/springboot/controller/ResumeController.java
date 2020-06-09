@@ -43,7 +43,6 @@ public class ResumeController {
     public String getTimeDiff(){
         Period period = Period.between(LocalDate.of(2015, 9, 10), LocalDate.now());
         String timeDiff = period.getYears() + "年" + period.getMonths() + "个月零" + period.getDays() + "天";
-//        model.addAttribute("timeDiff",timeDiff);
         DataMap<Object> objectDataMap = DataMap.success().setData(timeDiff);
         return JsonResult.build(objectDataMap).toJSON();
     }
@@ -51,7 +50,6 @@ public class ResumeController {
     @RequestMapping(value = "/getWorkRecord" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getWorkRecord(@RequestParam("workId")String  workId){
         DataMap data = resumeService.getWorkRecordByWorkId(workId);
-        System.out.println(JsonResult.build(data).toJSON());
         return JsonResult.build(data).toJSON();
     }
 }
