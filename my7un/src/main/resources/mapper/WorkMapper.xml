@@ -22,10 +22,18 @@
     </resultMap>
 
     <select id="selectAllWork" resultMap="myWork">
-        select w.*,wr.begin_time beginT,wr.id id1 ,wr.end_time endT ,wr.*  from t_work w left join t_work_record wr on w.id = wr.work_id
+        select w.*,wr.begin_time beginT,wr.id id1 ,wr.end_time endT ,wr.*  from t_work w left join t_work_record wr on w.id = wr.work_id order by w.id desc
     </select>
 
     <select id="selectWork" resultType="top.i7un.springboot.model.Work">
         select * from t_work
+    </select>
+
+    <select id="getWorkRecordByWorkId" resultType="top.i7un.springboot.model.WorkRecord">
+        select * from t_work_record where work_id = #{workId}
+    </select>
+
+    <select id="getworkById" resultType="top.i7un.springboot.model.Work">
+        select * from t_work where id = #{workId}
     </select>
 </mapper>

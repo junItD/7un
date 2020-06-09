@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.i7un.springboot.mapper.WorkMapper;
 import top.i7un.springboot.model.Work;
+import top.i7un.springboot.model.WorkRecord;
 import top.i7un.springboot.service.ResumeService;
 import top.i7un.springboot.utils.DataMap;
 
@@ -22,5 +23,16 @@ public class ResumeServiceImpl implements ResumeService {
     public DataMap findAllwork() {
         List<Work> works = workMapper.selectAllWork();
         return DataMap.success().setData(works);
+    }
+
+    @Override
+    public DataMap getWorkRecordByWorkId(String workId) {
+        List<WorkRecord> list = workMapper.getWorkRecordByWorkId(Long.valueOf(workId));
+        return DataMap.success().setData(list);
+    }
+
+    @Override
+    public Work getworkById(long workId) {
+        return workMapper.getworkById(workId);
     }
 }

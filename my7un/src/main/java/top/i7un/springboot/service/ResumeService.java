@@ -1,5 +1,6 @@
 package top.i7un.springboot.service;
 
+import top.i7un.springboot.model.Work;
 import top.i7un.springboot.utils.DataMap;
 
 /**
@@ -7,4 +8,8 @@ import top.i7un.springboot.utils.DataMap;
  */
 public interface ResumeService {
     DataMap findAllwork();
+
+    DataMap getWorkRecordByWorkId(String workId);
+
+    Work getworkById(long workId);
 }

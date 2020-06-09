@@ -4,10 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import top.i7un.springboot.constant.CodeType;
 import top.i7un.springboot.service.ResumeService;
 import top.i7un.springboot.utils.DataMap;
@@ -34,7 +31,6 @@ public class ResumeController {
     public String getWork(){
         try {
             DataMap data = resumeService.findAllwork();
-//            System.out.println(JsonResult.build(data).toJSON());
             return JsonResult.build(data).toJSON();
         } catch (Exception e) {
             log.error("工作信息获取失败", e);
@@ -52,4 +48,10 @@ public class ResumeController {
         return JsonResult.build(objectDataMap).toJSON();
     }
 
+    @RequestMapping(value = "/getWorkRecord" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String getWorkRecord(@RequestParam("workId")String  workId){
+        DataMap data = resumeService.getWorkRecordByWorkId(workId);
+        System.out.println(JsonResult.build(data).toJSON());
+        return JsonResult.build(data).toJSON();
+    }
 }

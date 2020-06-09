@@ -1,5 +1,6 @@
 package top.i7un.springboot.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.util.Date;
@@ -14,6 +15,8 @@ public class WorkRecord {
         private Long workId;
         private String project;
         private String projetDetail;
+        @JSONField(format="yyyy-MM")
         private Date beginTime;
+        @JSONField (format="yyyy-MM")
         private Date endTime;
 }

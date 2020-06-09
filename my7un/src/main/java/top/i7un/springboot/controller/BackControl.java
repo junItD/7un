@@ -2,7 +2,9 @@ package top.i7un.springboot.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
+import top.i7un.springboot.model.Work;
 import top.i7un.springboot.service.ArticleService;
+import top.i7un.springboot.service.ResumeService;
 import top.i7un.springboot.utils.StringUtil;
 import top.i7un.springboot.utils.TransCodingUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,8 @@ public class BackControl {
 
     @Autowired
     ArticleService articleService;
+    @Autowired
+    private ResumeService resumeService;
 
     /**
      * 跳转首页
@@ -201,52 +205,20 @@ public class BackControl {
     }
 
     @GetMapping("/getWorkRecordById/{id}")
-    public String getWorkRecordById(@PathVariable("id") long articleId,
+    public String getWorkRecordById(@PathVariable("id") long workId,
                        HttpServletResponse response,
                        Model model,
                        HttpServletRequest request){
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         request.getSession().removeAttribute("lastUrl");
-
-        Map<String, String> articleMap = articleService.findArticleTitleByArticleId(articleId);
-        if(articleMap.get("articleTitle") != null){
-            model.addAttribute("articleTitle",articleMap.get("articleTitle"));
-            String articleTabloid = articleMap.get("articleTabloid");
-            if(articleTabloid.length() <= 110){
-                model.addAttribute("articleTabloid",articleTabloid);
-            } else {
-                model.addAttribute("articleTabloid",articleTabloid.substring(0,110));
-            }
-        }
-        //将文章id存入响应头
-        response.setHeader("articleId",String.valueOf(articleId));
-        return "show";
+        Work work = resumeService.getworkById(workId);
+        model.addAttribute("title",work.getCompany()+"工作经历");
+        //将工作id存入响应头
+        response.setHeader("workId",String.valueOf(workId));
+        return "workrecord";
     }
 
-//    @RequestMapping(value = "/getWorkRecordById/{id}")
-//    public String getWorkRecordById(@PathVariable long id,HttpServletResponse response,
-//                                    Model model,
-//                                    HttpServletRequest request){
-//        response.setCharacterEncoding("utf-8");
-//        response.setContentType("text/html;charset=utf-8");
-//        request.getSession().removeAttribute("lastUrl");
-//
-//        Map<String, String> articleMap = articleService.findArticleTitleByArticleId(id);
-////        Map<String, String> articleMap = new HashMap<>();
-//        if(articleMap.get("articleTitle") != null){
-//            model.addAttribute("articleTitle",articleMap.get("articleTitle"));
-//            String articleTabloid = articleMap.get("articleTabloid");
-//            if(articleTabloid.length() <= 110){
-//                model.addAttribute("articleTabloid",articleTabloid);
-//            } else {
-//                model.addAttribute("articleTabloid",articleTabloid.substring(0,110));
-//            }
-//        }
-//        //将文章id存入响应头
-//        response.setHeader("articleId",id+"");
-//        return "show";
-//    }
 
     /**
      * 跳转到归档页
