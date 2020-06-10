@@ -6,6 +6,7 @@ import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import top.i7un.springboot.component.PhoneRandomBuilder;
 import top.i7un.springboot.redis.StringRedisServiceImpl;
 import top.i7un.springboot.utils.JsonResult;

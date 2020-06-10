@@ -11,7 +11,7 @@ function putInArticle(data) {
             var workCenter = $('<div class="workCenter">' +
                 '<header class="article-header">' +
                 '<h1 itemprop="name">' +
-                '<a class="article-title" href="' + obj['id'] + '" target="_blank">' + obj['company'] + '</a>' +
+                '<a class="article-title" href="/getWorkRecordById/' + obj['id'] + '" target="_self">' + obj['company'] + '</a>' +
                 '</h1>' +
                 '<div class="article-meta row">' +
                 // '<span class="articleType am-badge am-badge-success">' + obj['postName'] + '</span>' +
@@ -41,6 +41,7 @@ function putInArticle(data) {
                 '<div class="read-all">' +
                 '<a href="/getWorkRecordById/' + obj['id'] + '" target="_self">查看我在<span style="color: #a4241f;"> '+obj['companyAbb']+' </span> 的项目经历 <i class="am-icon-angle-double-right"></i></a>' +
                 // '<a href="/getWorkRecordById/1591174028"  target="_self">查看我在<span style="color: #a4241f;"> '+obj['companyAbb']+' </span> 的项目经历 <i class="am-icon-angle-double-right"></i></a>' +
+                '<br>'+
                 '<br>'+
                 '</div>' +
                 '<hr>' +
