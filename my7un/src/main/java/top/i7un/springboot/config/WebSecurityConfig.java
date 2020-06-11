@@ -46,16 +46,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                //放行无需验证的url
             .authorizeRequests()
             .antMatchers("/","/index","/aboutme","/archives","/categories","/friendlylink","/tags","/update","/getWorkRecordById")
                 .permitAll()
+
+                //配置各个角色可以用的url
                 .antMatchers("/editor","/user").hasAnyRole("USER")
-                .antMatchers("/ali","/mylove").hasAnyRole("ADMIN")
-                .antMatchers("/superadmin","/myheart","/today","/yesterday").hasAnyRole("SUPERADMIN")
+                .antMatchers("/editor","/ali","/mylove").hasAnyRole("ADMIN")
+                .antMatchers("/ali","/editor","/superadmin","/myheart","/today","/yesterday").hasAnyRole("SUPERADMIN")
+
+
                 .and()
                 .formLogin().loginPage("/login").failureUrl("/login?error").defaultSuccessUrl("/")
+
                 .and()
                 .headers().frameOptions().sameOrigin()
+                //登出
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/");
 
