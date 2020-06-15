@@ -33,6 +33,7 @@ public class MyTest {
         System.out.println(s);
     }
 
+
     @Autowired
     private WorkMapper workMapper;
 
@@ -49,4 +50,6 @@ public class MyTest {
         List<Work> works = workMapper.selectAllWork();
         System.out.println(works);
     }
+
+
 }

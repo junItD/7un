@@ -1,9 +1,13 @@
 package top.i7un.springboot.controller;
 
+import com.aliyuncs.CommonRequest;
+import com.aliyuncs.CommonResponse;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
 import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.exceptions.ServerException;
+import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
@@ -31,7 +35,8 @@ public class GetPhoneCodeControl {
     StringRedisServiceImpl stringRedisService;
 
     private static final String REGISTER = "register";
-
+    public static final String RESISTERTEMPLATE ="SMS_193230965";
+    public static final String DOMAIN = "dysmsapi.aliyuncs.com";
     /**
      * 阿里云 accessKeyId
      */
@@ -62,7 +67,7 @@ public class GetPhoneCodeControl {
         String msgCode;
         //注册的短信模板
         if(REGISTER.equals(sign)){
-            msgCode = "SMS_136394413";
+            msgCode = RESISTERTEMPLATE;
         }
         //改密码的短信模板
         else {
@@ -70,8 +75,8 @@ public class GetPhoneCodeControl {
         }
 
         try {
-            sendSmsResponse(phone, trueMsgCode, msgCode);
-        } catch (ClientException e) {
+            sendSmsMsg(phone, trueMsgCode, msgCode);
+        } catch (Exception e) {
             log.error("[{}] send phone message exception", phone, e);
             return JsonResult.fail().toJSON();
         }
@@ -101,6 +106,28 @@ public class GetPhoneCodeControl {
 
     }
 
+    private void sendSmsMsg(String phoneNumber, String code, String msgCode){
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", accessKeyId, secret);
+        IAcsClient client = new DefaultAcsClient(profile);
 
+        CommonRequest request = new CommonRequest();
+        request.setSysMethod(MethodType.POST);
+        request.setSysDomain(DOMAIN);
+        String version = "2017-05-25";
+        request.setSysVersion(version);
+        String sendSms = "SendSms";
+        request.setSysAction(sendSms);
+        request.putQueryParameter("RegionId", "cn-hangzhou");
+        request.putQueryParameter("PhoneNumbers", phoneNumber);
+        request.putQueryParameter("SignName", "i夋夋爬上云端");
+        request.putQueryParameter("TemplateCode", RESISTERTEMPLATE);
+        request.putQueryParameter("TemplateParam", "{\"code\":\"" + code + "\"}");
+        try {
+            CommonResponse response = client.getCommonResponse(request);
+            System.out.println(response.getData());
+        } catch (Exception e) {
+           log.warn("发送短信异常",e);
+        }
+    }
 
 }

@@ -54,8 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //配置各个角色可以用的url
                 .antMatchers("/editor","/user").hasAnyRole("USER")
                 .antMatchers("/editor","/ali","/mylove").hasAnyRole("ADMIN")
-                .antMatchers("/ali","/editor","/superadmin","/myheart","/today","/yesterday").hasAnyRole("SUPERADMIN")
-
+                .antMatchers("/ali","/editor","/superadmin","/myheart","/today","/yesterday","/mylove","/user").hasAnyRole("SUPERADMIN")
+//"/ali","/editor","/superadmin","/myheart","/today","/yesterday","/mylove","/user",
 
                 .and()
                 .formLogin().loginPage("/login").failureUrl("/login?error").defaultSuccessUrl("/")
