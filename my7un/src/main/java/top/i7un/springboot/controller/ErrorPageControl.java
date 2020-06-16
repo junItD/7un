@@ -13,7 +13,6 @@ public class ErrorPageControl {
 
     @GetMapping("/404")
     public String error404(){
-        System.out.println(111);
         return "404";
     }
 

@@ -10,6 +10,7 @@ import top.i7un.springboot.mapper.VisitorMapper;
 import top.i7un.springboot.mapper.WorkMapper;
 import top.i7un.springboot.model.Work;
 import top.i7un.springboot.mytest.FreeMarkTemplateService;
+import top.i7un.springboot.utils.FileUtil;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -51,5 +52,9 @@ public class MyTest {
         System.out.println(works);
     }
 
+    @Test
+    public void testDown() throws IOException {
+        FileUtil.downLoadFile();
+    }
 
 }

@@ -1,6 +1,9 @@
 package top.i7un.springboot.utils;
 
+import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClient;
+import com.aliyun.oss.model.GetObjectRequest;
+import com.aliyun.oss.model.OSSObject;
 import top.i7un.springboot.constant.OSSClientConstants;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -139,6 +142,36 @@ public class FileUtil {
             }
         }
         return f;
+    }
+
+    public static void downLoadAndSout() throws IOException {
+        String bucketName = OSSClientConstants.BACKET_NAME;
+        String objectName = "oss.txt";
+        // 创建OSSClient实例。
+        OSS ossClient = AliYunOSSClientUtil.getOSSClient();
+        // ossObject包含文件所在的存储空间名称、文件名称、文件元信息以及一个输入流。
+        OSSObject ossObject = ossClient.getObject(bucketName, objectName);
+      // 读取文件内容。
+        System.out.println("Object content:");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(ossObject.getObjectContent()));
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) break;
+
+            System.out.println("\n" + line);
+        }
+// 数据读取完成后，获取的流必须关闭，否则会造成连接泄漏，导致请求无连接可用，程序无法正常工作。
+        reader.close();
+// 关闭OSSClient。
+        ossClient.shutdown();
+    }
+
+    public static void downLoadFile(){
+        OSSClient ossClient = AliYunOSSClientUtil.getOSSClient();
+        // 下载OSS文件到本地文件。如果指定的本地文件存在会覆盖，不存在则新建。
+        ossClient.getObject(new GetObjectRequest(OSSClientConstants.BACKET_NAME, "oss.txt"), new File("E:\\down\\1.doc"));
+        // 关闭OSSClient。
+        ossClient.shutdown();
     }
 
 }
