@@ -135,25 +135,27 @@ function siteRunningTime(time) {
 $("#myResume").click(function(){
     // $.get("/upDown",function(){
     // });
+    console.log("12221")
     $.ajax({
-        url:'/upDown',
+        url:'/upDown?date='+new Date().getTime(),
         async:true,
         contentType:'application/x-www-form-urlencoded',
         data:{
             filePath : "resume.doc"
         },
-        xhr:function(){
-            var xhr = new XMLHttpRequest();
-            xhr.responseType = 'arraybuffer';
-            return xhr;
-        },
+        // xhr:function(){
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.responseType = 'arraybuffer';
+        //     return xhr;
+        // },
+        xhrFields: { responseType: "arraybuffer" },
         type:'POST',
         timeout:60000,
         success:function(result){
             var blob = new Blob([result], {type: "application/msword;charset=utf-8"}),
                 Temp = document.createElement("a");
             Temp.href = window.URL.createObjectURL(blob);
-            Temp.download ='resume.doc'
+            Temp.download ='赵峻.doc'
             $('body').append(Temp);
             Temp.click();
         }})
