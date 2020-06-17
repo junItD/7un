@@ -74,7 +74,8 @@ public class MyTest {
 
     @Test
     public void test11(){
-        System.out.println(stringEncryptor.encrypt("oss-cn-beijing-internal.aliyuncs.com"));
+        System.out.println(stringEncryptor.encrypt("username"));
+        System.out.println(stringEncryptor.encrypt("password"));
     }
 
 }
