@@ -110,9 +110,9 @@
                 '<div class="article-entry">' +
                 obj['articleTabloid'] +
                 '</div>' +
-                // '<div class="read-all">' +
-                // '<a href="' + obj['thisArticleUrl'] + '" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>' +
-                // '</div>' +
+                '<div class="read-all">' +
+                '<a href="' + obj['thisArticleUrl'] + '" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>' +
+                '</div>' +
                 '<hr>' +
                 '<div class="article-tags">' +
 
@@ -124,8 +124,8 @@
                 var articleTag = $('<i class="am-icon-tag"><a class="tag" href="/tags?tag=' + obj['articleTags'][i] + '"> ' + obj['articleTags'][i] + '</a></i>');
                 articleTags.eq(index).append(articleTag);
             }
-            // var likes = $('<span class="likes"><i class="am-icon-heart"> ' + obj['likes'] + '个喜欢</i></span>');
-            // articleTags.eq(index).append(likes);
+            var likes = $('<span class="likes"><i class="am-icon-heart"> ' + obj['likes'] + '个喜欢</i></span>');
+            articleTags.eq(index).append(likes);
         }
     })
 
@@ -209,7 +209,7 @@
         url: '/myArticles',
         dataType: 'json',
         data: {
-            rows:"10",
+            rows:"5",
             pageNum:currentPage
         },
         success: function (data) {

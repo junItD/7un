@@ -1,5 +1,6 @@
 package top.i7un.springboot.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import top.i7un.springboot.service.security.CustomUserServiceImpl;
 import top.i7un.springboot.utils.MD5Util;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     UserDetailsService customUserService(){
         return new CustomUserServiceImpl();
     }
+
+    @Autowired
+    private CustomSavedRequestAwareAuthenticationSuccessHandler customSavedRequestAwareAuthenticationSuccessHandler;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -59,6 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .formLogin().loginPage("/login").failureUrl("/login?error").defaultSuccessUrl("/")
+//                .successHandler(customSavedRequestAwareAuthenticationSuccessHandler)
 
                 .and()
                 .headers().frameOptions().sameOrigin()
