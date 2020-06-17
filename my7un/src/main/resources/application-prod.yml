@@ -2,16 +2,16 @@ server:
     port: 80
 spring:
     datasource:
-        password: user_dbpass
-        url: jdbc:mysql://rm-2zev83tvb4y3n75ht125010.mysql.rds.aliyuncs.com/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false
-        username: user_db
+        password: ENC(idmv4Ls2v/SJuyrTr2ciXpe3EnHD6xMB)
+        url: ENC(a1AH1KSHR1VhqaSos/bq8Uqr789wsnZP5rOqCKLis5Za1wCamj6w+soJv/bCG+OCJnlbpYem0aiZ9JB9wk8ZmKd4Izrn1sQ2A6+s4T3kFQ4s8uEYGjUZVoMbTw3vJsqnMDon825YbtF2z9SBC6at0GJFyGvCHJdfLCV4wT+LdD105k2mxEyOQQ==)
+        username: ENC(x+jHhMgYPxGqO5JzP1HfoQ==)
     redis:
-        password: redispass
+        password: ENC(b1WryJFdS/CwhXhg/Jhi3wvfOLPKBN9/)
     application:
         name: my7un-main
 aliyun:
-  accessKeyId: LTAI4G4jgTN2fmeCEpWo3xfw
-  secret: klNd8NRAl0ocQZ9u12xgo2pPcDCJB1
+  accessKeyId: ENC(HRXuNWPviz+/S+YEErdxsE23+LxOZ4+sH/e2cAkf4EtWGHlLtSD5hA==)
+  secret: ENC(GnNRco0IJ44YcccBgukSWOx7gpGb7WTrrbWM95ySElOt9jfaATk9jA==)
   endpoint: oss-cn-beijing-internal.aliyuncs.com
 
 #eureka:

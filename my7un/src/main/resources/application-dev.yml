@@ -10,9 +10,9 @@ spring:
     application:
         name: my7un-main
 aliyun:
-  accessKeyId: LTAI4G4jgTN2fmeCEpWo3xfw
-  secret: klNd8NRAl0ocQZ9u12xgo2pPcDCJB1
-  endpoint: oss-cn-beijing.aliyuncs.com
+  accessKeyId: ENC(HRXuNWPviz+/S+YEErdxsE23+LxOZ4+sH/e2cAkf4EtWGHlLtSD5hA==)
+  secret: ENC(GnNRco0IJ44YcccBgukSWOx7gpGb7WTrrbWM95ySElOt9jfaATk9jA==)
+  endpoint: ENC(8foE8aG4uvaIoSnNxAQkSDStz3gvCTVUCPctqRQuUduHncLYhFDtYQ==)
 
 #eureka:
 #  client:

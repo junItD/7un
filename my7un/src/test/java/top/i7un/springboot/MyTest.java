@@ -1,6 +1,7 @@
 package top.i7un.springboot;
 
 import freemarker.template.TemplateException;
+import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class MyTest {
 
     @Autowired
     private FreeMarkTemplateService freeMarkTemplateService;
+
+    @Autowired
+    private StringEncryptor stringEncryptor;
 
     @Test
     public void test1() throws IOException, TemplateException {
@@ -67,4 +71,10 @@ public class MyTest {
     public void test() throws IOException {
         FileUtil.downLoadAndSout();
     }
+
+    @Test
+    public void test11(){
+        System.out.println(stringEncryptor.encrypt("oss-cn-beijing-internal.aliyuncs.com"));
+    }
+
 }
