@@ -2,12 +2,15 @@ package top.i7un.springboot.utils;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClient;
+import com.aliyun.oss.common.utils.CodingUtils;
 import com.aliyun.oss.model.GetObjectRequest;
 import com.aliyun.oss.model.OSSObject;
+import com.aliyun.oss.model.ObjectMetadata;
 import top.i7un.springboot.constant.OSSClientConstants;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 /**
@@ -146,7 +149,7 @@ public class FileUtil {
 
     public static void downLoadAndSout() throws IOException {
         String bucketName = OSSClientConstants.BACKET_NAME;
-        String objectName = "oss.txt";
+        String objectName = "resume.doc";
         // 创建OSSClient实例。
         OSS ossClient = AliYunOSSClientUtil.getOSSClient();
         // ossObject包含文件所在的存储空间名称、文件名称、文件元信息以及一个输入流。
@@ -166,12 +169,14 @@ public class FileUtil {
         ossClient.shutdown();
     }
 
-    public static void downLoadFile(){
+
+    public static void downLoadFile(String file){
         OSSClient ossClient = AliYunOSSClientUtil.getOSSClient();
         // 下载OSS文件到本地文件。如果指定的本地文件存在会覆盖，不存在则新建。
-        ossClient.getObject(new GetObjectRequest(OSSClientConstants.BACKET_NAME, "oss.txt"), new File("E:\\down\\1.doc"));
+        ossClient.getObject(new GetObjectRequest(OSSClientConstants.BACKET_NAME, file), new File(file));
         // 关闭OSSClient。
         ossClient.shutdown();
     }
+
 
 }

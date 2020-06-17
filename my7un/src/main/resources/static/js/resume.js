@@ -135,6 +135,32 @@ function siteRunningTime(time) {
 
     $('.siteRunningTime').html(strTime);
 }
+$("#myResume").click(function(){
+    // $.get("/upDown",function(){
+    // });
+    $.ajax({
+        url:'/upDown',
+        async:true,
+        contentType:'application/x-www-form-urlencoded',
+        data:{
+            filePath : "resume.doc"
+        },
+        xhr:function(){
+            var xhr = new XMLHttpRequest();
+            xhr.responseType = 'arraybuffer';
+            return xhr;
+        },
+        type:'POST',
+        timeout:60000,
+        success:function(result){
+            var blob = new Blob([result], {type: "application/msword;charset=utf-8"}),
+                Temp = document.createElement("a");
+            Temp.href = window.URL.createObjectURL(blob);
+            Temp.download ='resume.doc'
+            $('body').append(Temp);
+            Temp.click();
+        }})
+});
 
 var nowDate = new Date().getTime();
 //网站开始运行日期

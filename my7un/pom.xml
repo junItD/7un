@@ -34,6 +34,25 @@
             <artifactId>guava</artifactId>
             <version>RELEASE</version>
         </dependency>
+        <!--dom4j-->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6</version>
+        </dependency>
+
+        <!--FTP用的-->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+        <!--mail-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
         <!--eureka客户端-->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.cloud</groupId>-->

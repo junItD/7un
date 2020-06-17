@@ -11,6 +11,7 @@ import top.i7un.springboot.mapper.WorkMapper;
 import top.i7un.springboot.model.Work;
 import top.i7un.springboot.mytest.FreeMarkTemplateService;
 import top.i7un.springboot.utils.FileUtil;
+import top.i7un.springboot.utils.FileUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -53,8 +54,17 @@ public class MyTest {
     }
 
     @Test
-    public void testDown() throws IOException {
-        FileUtil.downLoadFile();
+    public void testDel(){
+        FileUtils.removeFile("resume.doc");
     }
 
+    @Test
+    public void testDown() throws IOException {
+        FileUtil.downLoadFile("resume.doc");
+    }
+
+    @Test
+    public void test() throws IOException {
+        FileUtil.downLoadAndSout();
+    }
 }
