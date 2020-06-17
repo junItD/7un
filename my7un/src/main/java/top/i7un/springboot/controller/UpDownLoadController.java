@@ -47,7 +47,7 @@ public class UpDownLoadController {
         response.setContentType("application/multipart/form-data");
         response.setContentType("charaset=utf-8");
         /* 设置文件头：最后一个参数是设置下载文件名   */
-        response.setHeader("Content-Disposition", "attachment;filename=resume.doc");
+        response.setHeader("Content-Disposition", "attachment");
         FileUtils.removeFile(filePath);
 
     }

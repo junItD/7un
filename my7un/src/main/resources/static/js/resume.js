@@ -1,7 +1,4 @@
 
-//网站开始时间
-var siteBeginRunningTime = '2018-07-25 20:00:00';
-
 
 //填充文章
 function putInArticle(data) {
@@ -161,13 +158,3 @@ $("#myResume").click(function(){
             Temp.click();
         }})
 });
-
-var nowDate = new Date().getTime();
-//网站开始运行日期
-var oldDate = new Date(siteBeginRunningTime.replace(/-/g,'/'));
-var time = oldDate.getTime();
-var theTime = parseInt((nowDate-time)/1000);
-setInterval(function () {
-    siteRunningTime(theTime);
-    theTime++;
-},1000);

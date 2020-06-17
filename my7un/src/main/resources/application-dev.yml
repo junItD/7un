@@ -9,6 +9,11 @@ spring:
         password: ''
     application:
         name: my7un-main
+aliyun:
+  accessKeyId: LTAI4G4jgTN2fmeCEpWo3xfw
+  secret: klNd8NRAl0ocQZ9u12xgo2pPcDCJB1
+  endpoint: oss-cn-beijing.aliyuncs.com
+
 #eureka:
 #  client:
 #    service-url:

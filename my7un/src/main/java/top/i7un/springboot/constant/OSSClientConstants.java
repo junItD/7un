@@ -14,7 +14,8 @@ public class OSSClientConstants {
     /**
      * 阿里云API的外网域名
      */
-    public static final String ENDPOINT = "oss-cn-beijing.aliyuncs.com";
+
+    public static String ENDPOINT;
 
     /**
      * 阿里云API的密钥Access Key ID
@@ -45,5 +46,10 @@ public class OSSClientConstants {
     @Value("${aliyun.secret}")
     public void setAccessKeySecret(String accessKeySecret) {
         ACCESS_KEY_SECRET = accessKeySecret;
+    }
+
+    @Value("${aliyun.endpoint}")
+    public void setEndpoint(String endpoint){
+        ENDPOINT = endpoint;
     }
 }
