@@ -19,4 +19,10 @@ public class MyTest {
     public String TestMine(String name){
         return feignClient.testMyFeign(name);
     }
+
+    @RequestMapping("/123")
+    public String test1(){
+        int i = 1/0;
+        return "123";
+    }
 }

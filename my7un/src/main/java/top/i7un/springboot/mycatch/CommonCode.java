@@ -15,6 +15,7 @@ public enum CommonCode implements ResultCode {
     REQUESTJDEXCETPION(false,10005,"调用京东接口异常"),
     CATEGORY_NULL_INVALID(false,10006,"请填写类目"),
     NULLPOINTEREXCEPTION(false,20001,"空指针异常！"),
+    ARITHMETICEXCEPTION(false,20003,"被零除异常！"),
     NUMBERFORMATEXCEPTION(false,20002,"类型转换异常，请检查参数！"),
     SERVER_ERROR(false,99999,"抱歉，系统繁忙，请稍后重试！");
 

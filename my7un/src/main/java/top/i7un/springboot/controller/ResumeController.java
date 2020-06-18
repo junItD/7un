@@ -29,14 +29,8 @@ public class ResumeController {
 
     @RequestMapping(value = "/getWork" , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getWork(){
-        try {
-            DataMap data = resumeService.findAllwork();
-            return JsonResult.build(data).toJSON();
-        } catch (Exception e) {
-            log.error("工作信息获取失败", e);
-        }
-        return JsonResult.fail(CodeType.SERVER_EXCEPTION).toJSON();
-
+        DataMap data = resumeService.findAllwork();
+        return JsonResult.build(data).toJSON();
     }
 
     @RequestMapping(value = "/getTimeDiff", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

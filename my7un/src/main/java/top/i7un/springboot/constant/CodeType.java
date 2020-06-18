@@ -52,6 +52,11 @@ public enum CodeType {
     PHONE_ERROR(901, "手机号错误"),
     AUTH_CODE_ERROR(902, "验证码错误"),
     PHONE_EXIST(903, "手机号存在"),
+
+    NULLPOINTEREXCEPTION(20001,"空指针异常！"),
+    ARITHMETICEXCEPTION(20003,"被零除异常！"),
+    NUMBERFORMATEXCEPTION(20002,"类型转换异常，请检查参数！"),
+
     ;
 
     private int code;
