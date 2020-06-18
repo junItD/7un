@@ -64,18 +64,8 @@ public class GetPhoneCodeControl {
         stringRedisService.set(phone, trueMsgCode);
         stringRedisService.expire(phone, 300);
 
-        String msgCode;
-        //注册的短信模板
-        if(REGISTER.equals(sign)){
-            msgCode = RESISTERTEMPLATE;
-        }
-        //改密码的短信模板
-        else {
-            msgCode = "SMS_139982667";
-        }
-
         try {
-            sendSmsMsg(phone, trueMsgCode, msgCode);
+            sendSmsMsg(phone, trueMsgCode, RESISTERTEMPLATE);
         } catch (Exception e) {
             log.error("[{}] send phone message exception", phone, e);
             return JsonResult.fail().toJSON();

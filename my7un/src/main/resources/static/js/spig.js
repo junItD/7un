@@ -6,8 +6,9 @@ jQuery(document).ready(function ($) {
     $("#spig").mousedown(function (e) {
         if (e.which == 3) {
             showMessage(
-                "秘密通道:<br /> <a style='color: #5bf71d' href=\"https://github.com/ght5935\" title=\"gitHub\">gitHub</a> ",
-                10000);
+                // "秘密通道:<br /> <a style='color: #5bf71d' href=\"https://github.com/ght5935\" title=\"gitHub\">gitHub</a> ",
+                // 10000
+            "矮油还会用右键 厉害厉害");
         }
     });
     $("#spig").bind("contextmenu", function (e) {
