@@ -63,14 +63,14 @@ public class GetPhoneCodeControl {
        //在redis中保存手机号验证码并设置过期时间
         stringRedisService.set(phone, trueMsgCode);
         stringRedisService.expire(phone, 300);
-
+        log.warn("即将给{}发送的验证码为{}",phone,trueMsgCode);
         try {
             sendSmsMsg(phone, trueMsgCode, RESISTERTEMPLATE);
         } catch (Exception e) {
             log.error("[{}] send phone message exception", phone, e);
             return JsonResult.fail().toJSON();
         }
-
+        log.warn("给{}发送的验证码成功 验证码为{}",phone,trueMsgCode);
         return JsonResult.success().toJSON();
     }
 
