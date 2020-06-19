@@ -89,19 +89,19 @@
     </div>
     <!--底部中含有该页面的单独访客量，不应使用共有底部-->
     <div class="footer">
-        <div class="footer am-u-sm-centered">
-            <div class="am-vertical-align" style="text-align: center">
-                <hr>
-                <div class="am-vertical-align-bottom">
-                    <div style="color: #009688;font-size: 15px;">
-                        &copy; 2018-2019 i夋夋爬上云端 - <i class="am-icon-coffee" style="margin: 0 5px"></i>峻仔 版权所有
-                    </div>
-                    <div id="footer" style="color: #009688;font-size: 15px;">
-                        总访问量 <span id="totalVisitors"><strong>0</strong></span> 次  您是本文第 <span id="visitorVolume"><strong>0</strong></span> 位童鞋
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="footer am-u-sm-centered">-->
+<!--            <div class="am-vertical-align" style="text-align: center">-->
+<!--                <hr>-->
+<!--                <div class="am-vertical-align-bottom">-->
+<!--                    <div style="color: #009688;font-size: 15px;">-->
+<!--                        &copy; 2018-2019 i夋夋爬上云端 - <i class="am-icon-coffee" style="margin: 0 5px"></i>峻仔 版权所有-->
+<!--                    </div>-->
+<!--                    <div id="footer" style="color: #009688;font-size: 15px;">-->
+<!--&lt;!&ndash;                        总访问量 <span id="totalVisitors"><strong>0</strong></span> 次  您是本文第 <span id="visitorVolume"><strong>0</strong></span> 位童鞋&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
         <div id="sidebar_toggle" class="sidebar_toggle" data-am-offcanvas="{target: '#offCanvas'}">
             <div class="sidebar_toggle_line_wrap">
                 <span class="sidebar-toggle-line sidebar-toggle-line-first" style="width: 100%; top: 0; transform: rotateZ(0deg); opacity: 1; left:0"></span>
@@ -118,6 +118,7 @@
         </div>
     </div>
     <!--消息盒子+反馈-->
+    <div th:replace="footer :: footer"></div>
     <div th:replace="other :: other"></div>
 </div>
 

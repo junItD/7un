@@ -34,7 +34,7 @@ public class MyTest {
 
     @RequestMapping("/two")
     public String testTwo(){
-        Work twoParams = workMapper.getTwoParams("开发工程师", "技术部");
+        Work twoParams = workMapper.getTwoParams("开发工程师", "技术部","123");
         System.out.println(twoParams);
         return JSONObject.toJSONString(twoParams);
     }

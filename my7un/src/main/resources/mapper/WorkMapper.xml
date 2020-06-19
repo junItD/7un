@@ -37,7 +37,7 @@
         select * from t_work where id = #{workId}
     </select>
 
-    <select id="getTwoParams" resultType="top.i7un.springboot.model.Work">
-        select * from t_work where post_name = #{postName} and department = #{department}
+    <select id="getTwoParams" resultMap="myWork">
+        select t.*,r.begin_time beginT,r.id id1 ,r.end_time endT ,r.*  from t_work t join t_work_record r on t.id = r.work_id where  t.department = #{department}  and t.post_name = #{param1} and r.project = #{project}
     </select>
 </mapper>
