@@ -36,4 +36,8 @@
     <select id="getworkById" resultType="top.i7un.springboot.model.Work">
         select * from t_work where id = #{workId}
     </select>
+
+    <select id="getTwoParams" resultType="top.i7un.springboot.model.Work">
+        select * from t_work where post_name = #{postName} and department = #{department}
+    </select>
 </mapper>

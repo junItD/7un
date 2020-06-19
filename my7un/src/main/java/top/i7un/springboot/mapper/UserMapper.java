@@ -58,7 +58,7 @@ public interface UserMapper {
     String findPhoneByUsername(@Param("username") String username);
 
     @Select("select id from user where username=#{username}")
-    int findIdByUsername(String username);
+    int findIdByUsername( String username);
 
     @Update("update user set recentlyLanded=#{recentlyLanded} where phone=#{phone}")
     void updateRecentlyLanded(@Param("phone") String phone, @Param("recentlyLanded") String recentlyLanded);

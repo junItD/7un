@@ -47,7 +47,6 @@ public class LeaveMessageControl {
      * @return
      */
     @PostMapping(value = "/publishLeaveMessage", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
     public String publishLeaveMessage(@RequestParam("leaveMessageContent") String leaveMessageContent,
                                           @RequestParam("pageName") String pageName,
                                           @AuthenticationPrincipal Principal principal){

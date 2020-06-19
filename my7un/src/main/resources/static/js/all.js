@@ -145,34 +145,34 @@ $('#sidebar_toggle').click(function () {
     $('.weixinPublic').attr("src","https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg");
 });
 
-//获得登录用户未读消息
-$.ajax({
-    type:'post',
-    url:'/getUserNews',
-    dataType:'json',
-    data:{
-    },
-    success:function (data) {
-        var thisPageName = window.location.pathname + window.location.search;
-        var news = $('.news');
-        if(data['status'] == 103){
-            return;
-        }
-        if(data['status'] != 101 && data['data']['result'] != 0){
-            news.append($('<span class="newsNum am-badge am-badge-danger am-round">' + data['data']['result']['allNewsNum'] + '</span>'));
-            if(thisPageName === "/user"){
-                if(data['data']['result']['commentNum'] !== 0){
-                    $('.commentMessage').find('a').append($('<span class="commentNotReadNum am-margin-right am-fr am-badge am-badge-danger am-round">' + data['data']['result']['commentNum'] + '</span>'));
-                }
-                if(data['data']['result']['leaveMessageNum'] !== 0){
-                    $('.leaveWord').find('a').append($('<span class="leaveMessageNotReadNum am-margin-right am-fr am-badge am-badge-danger am-round">' + data['data']['result']['leaveMessageNum'] + '</span>'));
-                }
-            }
-        }
-    },
-    error:function () {
-    }
-});
+// //获得登录用户未读消息
+// $.ajax({
+//     type:'post',
+//     url:'/getUserNews',
+//     dataType:'json',
+//     data:{
+//     },
+//     success:function (data) {
+//         var thisPageName = window.location.pathname + window.location.search;
+//         var news = $('.news');
+//         if(data['status'] == 103){
+//             return;
+//         }
+//         if(data['status'] != 101 && data['data']['result'] != 0){
+//             news.append($('<span class="newsNum am-badge am-badge-danger am-round">' + data['data']['result']['allNewsNum'] + '</span>'));
+//             if(thisPageName === "/user"){
+//                 if(data['data']['result']['commentNum'] !== 0){
+//                     $('.commentMessage').find('a').append($('<span class="commentNotReadNum am-margin-right am-fr am-badge am-badge-danger am-round">' + data['data']['result']['commentNum'] + '</span>'));
+//                 }
+//                 if(data['data']['result']['leaveMessageNum'] !== 0){
+//                     $('.leaveWord').find('a').append($('<span class="leaveMessageNotReadNum am-margin-right am-fr am-badge am-badge-danger am-round">' + data['data']['result']['leaveMessageNum'] + '</span>'));
+//                 }
+//             }
+//         }
+//     },
+//     error:function () {
+//     }
+// });
 
 //反馈
 $('.feedbackClick').click(function () {

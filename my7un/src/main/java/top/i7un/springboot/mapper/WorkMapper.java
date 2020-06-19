@@ -23,4 +23,6 @@ public interface WorkMapper {
     List<WorkRecord> getWorkRecordByWorkId(Long workId);
 
     Work getworkById(long workId);
+
+    Work getTwoParams(String postName ,String department);
 }
