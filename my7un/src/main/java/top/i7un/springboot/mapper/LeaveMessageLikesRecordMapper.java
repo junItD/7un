@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LeaveMessageLikesRecordMapper {
 
-    @Select("select likeDate from leave_message_likes_record where pageName=#{pageName} and pId=#{pId} and likerId=#{likerId}")
+//    @Select("select likeDate from leave_message_likes_record where pageName=#{pageName} and pId=#{pId} and likerId=#{likerId}")
     LeaveMessageLikesRecord isLiked(@Param("pageName") String pageName, @Param("pId") int pId, @Param("likerId") int likerId);
 
     @Insert("insert into leave_message_likes_record(pageName,pId,likerId,likeDate) " +

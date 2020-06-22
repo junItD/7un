@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class LeaveMessage {
 
-    private int id;
+    private Integer id;
 
     /**
      * 留言页
@@ -21,17 +21,17 @@ public class LeaveMessage {
     /**
      * 留言的父id 若是留言则为 0，则是留言中的回复则为对应留言的id
      */
-    private int pId=0;
+    private Integer pId=0;
 
     /**
      * 留言者
      */
-    private int answererId;
+    private Integer answererId;
 
     /**
      * 被回复者
      */
-    private int respondentId;
+    private Integer respondentId;
 
     /**
      * 留言日期
@@ -41,7 +41,7 @@ public class LeaveMessage {
     /**
      * 喜欢数
      */
-    private int likes=0;
+    private Integer likes=0;
 
     /**
      * 留言内容
@@ -51,9 +51,9 @@ public class LeaveMessage {
     /**
      * 该条留言是否已读  1--未读   0--已读
      */
-    private int isRead = 1;
+    private Integer isRead = 1;
 
-    public LeaveMessage(String pageName, int answererId, int respondentId, String leaveMessageDate, String leaveMessageContent) {
+    public LeaveMessage(String pageName, Integer answererId, Integer respondentId, String leaveMessageDate, String leaveMessageContent) {
         this.pageName = pageName;
         this.answererId = answererId;
         this.respondentId = respondentId;

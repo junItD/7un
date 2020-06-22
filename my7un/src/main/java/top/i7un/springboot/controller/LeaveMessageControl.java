@@ -1,5 +1,6 @@
 package top.i7un.springboot.controller;
 
+import org.springframework.web.bind.annotation.*;
 import top.i7un.springboot.aspect.annotation.PermissionCheck;
 import top.i7un.springboot.component.JavaScriptCheck;
 import top.i7un.springboot.constant.CodeType;
@@ -16,10 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
@@ -61,6 +58,23 @@ public class LeaveMessageControl {
         return JsonResult.fail(CodeType.SERVER_EXCEPTION).toJSON();
     }
 
+
+    @PostMapping(value = "/myLeaveMessage", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String myLeaveMessage(@RequestParam("leaveMessageContent") String leaveMessageContent,
+                                      @RequestParam("pageName") String pageName,
+                                      @AuthenticationPrincipal Principal principal){
+        String answerer = principal.getName();
+        try {
+            leaveMessageService.publishLeaveMessage(leaveMessageContent,pageName, answerer);
+            DataMap data = leaveMessageService.findAllLeaveMessages(answerer);
+            return JsonResult.build(data).toJSON();
+        } catch (Exception e){
+            log.error("[{}] publish leaveword [{}] on pageName [{}] exception", answerer, leaveMessageContent, pageName, e);
+        }
+        return JsonResult.fail(CodeType.SERVER_EXCEPTION).toJSON();
+    }
+
+
     /**
      * 获得当前页的留言
      * @param pageName 当前页
@@ -82,13 +96,18 @@ public class LeaveMessageControl {
         return JsonResult.fail(CodeType.SERVER_EXCEPTION).toJSON();
     }
 
+    @GetMapping(value = "/getAllLeaveMessage", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String getAllLeaveMessage( @AuthenticationPrincipal Principal principal) {
+        DataMap data = leaveMessageService.findAllLeaveMessages(principal == null ? null : principal.getName());
+        return JsonResult.build(data).toJSON();
+    }
     /**
      * 发布留言中的评论
      * @return
      */
     @PostMapping(value = "/publishLeaveMessageReply", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @PermissionCheck(value = "ROLE_USER")
-    public String publishLeaveMessageReply(LeaveMessage leaveMessage,
+    public String publishLeaveMessageReply( LeaveMessage leaveMessage,
                                            @RequestParam("parentId") String parentId,
                                            @RequestParam("respondent") String respondent,
                                            @AuthenticationPrincipal Principal principal){

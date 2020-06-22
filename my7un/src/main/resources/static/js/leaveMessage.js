@@ -328,7 +328,7 @@
 
     $.ajax({
         type: 'GET',
-        url: '/getPageLeaveMessage',
+        url: '/getAllLeaveMessage',
         dataType: 'json',
         data: {
             pageName:window.location.pathname.substring(1)
@@ -363,7 +363,7 @@
         }else{
             $.ajax({
                 type: 'POST',
-                url: '/publishLeaveMessage',
+                url: '/myLeaveMessage',
                 dataType: 'json',
                 data: {
                     leaveMessageContent:leaveMessageContent,

@@ -188,6 +188,14 @@
 .zhy-info-day{
     padding: 7px 10px;
 }
+.commentBtn{
+    margin: 10px 0;
+}
+.comment-top-input{
+    margin: 0;
+}
+.leaveMessage{
+}
 .zhy-info-day p{
     text-align: center;
     font-size: 14px;

@@ -41,7 +41,7 @@ public interface LeaveMessageService {
      * @return
      */
     DataMap findAllLeaveMessage(String pageName, int pId, String username);
-
+    DataMap findAllLeaveMessages(String username);
     /**
      * 更新点赞数
      * @return 点赞数

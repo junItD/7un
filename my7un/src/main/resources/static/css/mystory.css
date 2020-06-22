@@ -7,7 +7,7 @@
         left: 40%;
     }
     .myStoryContent,.myStoryLeaveMessage{
-        margin: 30px 0 100px 150px;
+        margin: 30px 0 100px 25%;
         width: 50%;
     }
     /*我的故事*/
@@ -22,6 +22,31 @@
     .storyWords{
         margin-top: 15px;
         color: #000000;
+        font-size: 25px;
+        position: relative;
+        top: 20%;
+        left: 25%;
+        display: block;
+    }
+    .lmmyStoryPicWord{
+        color: white;
+        font-size: 34px;
+        position: relative;
+        top: 20%;
+        left: 35%;
+        display: block;
+    }
+    .lmwork{
+        color: black;
+        font-size: 20px;
+        position: relative;
+        top: 20%;
+        left: 65%;
+        display: block;
+    }
+    .lmstoryWords{
+        margin-top: 15px;
+        color: white;
         font-size: 25px;
         position: relative;
         top: 20%;
@@ -70,6 +95,7 @@
         left: 5%;
         display: block;
     }
+
     .storyWords{
         margin-top: 15px;
         color: #000000;

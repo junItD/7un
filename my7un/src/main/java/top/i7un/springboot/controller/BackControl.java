@@ -84,6 +84,11 @@ public class BackControl {
         return "mystory";
     }
 
+    @GetMapping("/myleavemessage")
+    public String myleavemessage(HttpServletRequest request){
+        return "leavemessage";
+    }
+
     /**
      * 跳转登录页
      */

@@ -148,6 +148,37 @@
                         </div>
                     </div>
 
+                    <div class="new-leaveWord">
+                        <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                            <div class="am-list-news-hd am-cf">
+                                <a class="newLeaveWord">
+                                    <h2>最新留言</h2>
+                                </a>
+                            </div>
+                            <div class="am-list-news-bd">
+                                <ul class="am-list">
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+
                     <div class="new-comment">
                         <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
                             <div class="am-list-news-hd am-cf">
@@ -178,35 +209,6 @@
                         </div>
                     </div>
 
-                    <div class="new-leaveWord">
-                        <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
-                            <div class="am-list-news-hd am-cf">
-                                <a class="newLeaveWord">
-                                    <h2>最新留言</h2>
-                                </a>
-                            </div>
-                            <div class="am-list-news-bd">
-                                <ul class="am-list">
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="showArticle am-u-sm-12 am-u-lg-6">
@@ -408,32 +410,37 @@
 
 <!--                    </ul>-->
 <!--                </div>-->
+
+                <!-- 模态框（Modal） -->
+                <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+                    <div class="am-modal-dialog" style="border-radius: 5px;">
+                        <div class="am-modal-hd" style="text-align: left;margin:auto auto 5px 20px">客官，可以畅所欲言哦
+                            <a href="javascript: void(0)" class="am-close am-close-alt am-close-spin" data-am-modal-close style="margin: 7px 10px auto auto">&times;</a>
+                        </div>
+                        <div class="leaveMessage">
+                                    <div th:if="${#httpServletRequest.remoteUser}">
+                                        <textarea  style="width: 90%" id="myleavemessage" placeholder="客官，没事整两句..."></textarea>
+                                    </div>
+
+                                    <div class="comment-top-input" th:unless="${#httpServletRequest.remoteUser}">
+                                        <div class="goToLogin">
+                                            &nbsp;&nbsp;&nbsp;<a href="/login">登录</a>后才可以发表留言呦...
+                                        </div>
+                                    </div>
+                        </div>
+                        <div class="am-modal-footer" style="text-align: right">
+                            <button type="button" id="commentBtn" class="am-btn am-btn-warning am-round" style="margin-top: 10px">发表留言</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
             <div class="am-u-sm-12 am-u-lg-3">
                 <div id="right">
 
                     <h3 class="widget-title">哇 (｡♥ᴗ♥｡) 发现一只小可爱</h3>
-<!--                    <div class="widget">-->
-<!--                        <div class="bg-danger">-->
-<!--                            <div class="zhy-info">-->
-<!--                                <i class="am-icon-quote-left" style="float: left"></i><br>-->
-<!--                                <div class="zhy-info-day">-->
-<!--                                    <p>每个优秀的人</p>-->
-<!--                                    <p>都有一段沉默的时光</p>-->
-<!--                                    <p>那段时光</p>-->
-<!--                                    <p>是付出了很多努力</p>-->
-<!--                                    <p>却得不到结果的日子</p>-->
-<!--                                    <p>我们把它叫做</p>-->
-<!--                                    <p>扎根</p>-->
-<!--                                    <p style="text-align: right;padding-top: 10px">-&#45;&#45; 峻仔</p>-->
-<!--                                </div>-->
-<!--                                <i class="am-icon-quote-right" style="float: right"></i>-->
-<!--                                <div class="zhy-info-opinion">-->
-<!--                                    <p><strong>Welcome to my blog！！！</strong></p>-->
-<!--                                    <p style="line-height: 25px">平淡对待一切<br>努力做最好的自己</p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
                         <video class="widgetvideo" autoplay="autoplay" controls="controls" muted="muted" src="mp4/wuli.mp4" loop="loop" height="500" width="300px"></video>
 
 <!--                    </div>-->
@@ -443,12 +450,12 @@
                         </div>
                         <div class="myStory-words">我的女孩，谢谢你一直都在</div>
                     </div>
-<!--                    <div class="myStory" >-->
-<!--                        <div class="bg-myStory">-->
-<!--                            <div><a class="bg-myStory-a" href="/mystory">我的故事</a></div>-->
-<!--                        </div>-->
-<!--                        <div class="myStory-words">一盆小花，一杯清茶</div>-->
-<!--                    </div>-->
+                    <div class="myStory" >
+                        <div class="bg-myStory">
+                            <div><a class="bg-myStory-a" href="/mystory">我的故事</a></div>
+                        </div>
+                        <div class="myStory-words">一盆小花，一杯清茶</div>
+                    </div>
 <!--                    <div class="myStory" >-->
 <!--                        <div class="bg-myHeart">-->
 <!--                            <div><a class="bg-myGirl-a" href="/myheart" target="_blank">藏心阁</a></div>-->
@@ -475,5 +482,6 @@
 <script src="js/index.js"></script>
 <script src="js/all.js"></script>
 <script src="js/plugs_paging.js"></script>
+<script src="js/indexleaveMessage.js"></script>
 </body>
 </html>

@@ -84,6 +84,21 @@ public class LeaveMessageServiceImpl implements LeaveMessageService {
     public DataMap findAllLeaveMessage(String pageName, int pId, String username) {
 
         List<LeaveMessage> leaveMessages = leaveMessageMapper.findAllLeaveMessage(pageName, pId);
+        JSONObject returnJson = getJsonObject(pageName, username, leaveMessages);
+
+        return DataMap.success().setData(returnJson);
+    }
+
+    @Override
+    public DataMap findAllLeaveMessages(String username) {
+
+        List<LeaveMessage> leaveMessages = leaveMessageMapper.findAllLeaveMessage(null,0);
+        JSONObject returnJson = getJsonObject(null, username, leaveMessages);
+
+        return DataMap.success().setData(returnJson);
+    }
+
+    private JSONObject getJsonObject(String pageName, String username, List<LeaveMessage> leaveMessages) {
         JSONObject returnJson,replyJson;
         JSONObject leaveMessageJson;
         JSONArray replyJsonArray;
@@ -109,7 +124,7 @@ public class LeaveMessageServiceImpl implements LeaveMessageService {
                     leaveMessageJson.put("isLiked",1);
                 }
             }
-
+            //留言里的回复
             leaveMessageReplies = leaveMessageMapper.findLeaveMessageReplyByPageNameAndPid(pageName, leaveMessage.getId());
             replyJsonArray = new JSONArray();
             for(LeaveMessage reply : leaveMessageReplies){
@@ -126,8 +141,7 @@ public class LeaveMessageServiceImpl implements LeaveMessageService {
             leaveMessageJsonArray.add(leaveMessageJson);
         }
         returnJson.put("result",leaveMessageJsonArray);
-
-        return DataMap.success().setData(returnJson);
+        return returnJson;
     }
 
     @Override

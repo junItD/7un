@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 //放行无需验证的url
             .authorizeRequests()
-            .antMatchers("/","/index","/aboutme","/archives","/categories","/friendlylink","/tags","/update","/getWorkRecordById")
+            .antMatchers("/","/index","/aboutme","/archives","/categories","/friendlylink","/tags","/update","/getWorkRecordById","/myleavemessage")
                 .permitAll()
 
                 //配置各个角色可以用的url

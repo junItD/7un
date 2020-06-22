@@ -19,10 +19,10 @@ public interface LeaveMessageMapper {
             "values(#{pageName},#{pId},#{answererId},#{respondentId},#{leaveMessageDate},#{likes},#{leaveMessageContent},#{isRead})")
     void save(LeaveMessage leaveMessage);
 
-    @Select("select * from leave_message_record where pageName=#{pageName} and pId=#{pId} order by id desc")
+//    @Select("select * from leave_message_record where pageName=#{pageName} and pId=#{pId} order by id desc")
     List<LeaveMessage> findAllLeaveMessage(@Param("pageName") String pageName, @Param("pId") int pId);
 
-    @Select("select id,answererId,respondentId,leaveMessageDate,leaveMessageContent from leave_message_record where pageName=#{pageName} and pId=#{pId}")
+//    @Select("select id,answererId,respondentId,leaveMessageDate,leaveMessageContent from leave_message_record where pageName=#{pageName} and pId=#{pId}")
     List<LeaveMessage> findLeaveMessageReplyByPageNameAndPid(@Param("pageName") String pageName, @Param("pId") int pId);
 
     @Update("update leave_message_record set likes=likes+1 where pageName=#{pageName} and id=#{id}")

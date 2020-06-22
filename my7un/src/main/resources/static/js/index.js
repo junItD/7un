@@ -169,6 +169,7 @@
         var newCommentTitle = $('<div class="am-list-news-hd am-cf">' +
             '<a class="newLeaveWord">' +
             '<h2 style="color: #110101">最新留言</h2>' +
+            '<button type="button" class="am-btn am-btn-default am-btn-sm am-fr " data-am-modal="{target: \'#my-alert\'}" style="border-radius: 5px">我要留言</button>' +
             '</a>' +
             '</div>');
         listNews.append(newCommentTitle);
@@ -176,7 +177,7 @@
         var ul = $('<ul class="fiveNewComments am-list"></ul>');
         $.each(data['result'], function (index, obj) {
             ul.append($('<li class="am-g am-list-item-dated">' +
-                '<a class="newLeaveWordTitle" href="/' + obj['pagePath'] + '#p' + obj['id'] + '" title="' + obj['leaveWordContent'] + '">' + obj['answerer'] + '：' + obj['leaveWordContent'] + '</a>\n' +
+                '<a class="newLeaveWordTitle" href="/myleavemessage" title="' + obj['leaveWordContent'] + '">' + obj['answerer'] + '：' + obj['leaveWordContent'] + '</a>\n' +
                 '<span class="am-list-date">' + obj['leaveWordDate'] + '</span>' +
                 '</li>'));
         });
@@ -209,7 +210,7 @@
         url: '/myArticles',
         dataType: 'json',
         data: {
-            rows:"5",
+            rows:"3",
             pageNum:currentPage
         },
         success: function (data) {
