@@ -45,7 +45,7 @@ public class UserControl {
      * 上传头像
      */
     @PostMapping(value = "/uploadHead", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+    //@PermissionCheck(value = "ROLE_USER")
     public String uploadHead(HttpServletRequest request,
                              @AuthenticationPrincipal Principal principal){
         try {
@@ -77,7 +77,7 @@ public class UserControl {
      * 获得个人资料
      */
     @PostMapping(value = "/getUserPersonalInfo", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+//    //@PermissionCheck(value = "ROLE_USER")
     public String getUserPersonalInfo(@AuthenticationPrincipal Principal principal){
         String username = principal.getName();
         try {
@@ -93,7 +93,7 @@ public class UserControl {
      * 保存个人资料
      */
     @PostMapping(value = "/savePersonalDate", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+//    //@PermissionCheck(value = "ROLE_USER")
     public String savePersonalDate(User user, @AuthenticationPrincipal Principal principal){
 
         String username = principal.getName();
@@ -110,7 +110,6 @@ public class UserControl {
      * 获得该用户曾今的所有评论
      */
     @PostMapping(value = "/getUserComment", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
     public String getUserComment(@RequestParam("rows") int rows,
                                      @RequestParam("pageNum") int pageNum,
                                      @AuthenticationPrincipal Principal principal){
@@ -128,7 +127,7 @@ public class UserControl {
      * 获得该用户曾今的所有留言
      */
     @PostMapping(value = "/getUserLeaveWord", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+//    //@PermissionCheck(value = "ROLE_USER")
     public String getUserLeaveMessage(@RequestParam("rows") int rows,
                                           @RequestParam("pageNum") int pageNum,
                                           @AuthenticationPrincipal Principal principal){
@@ -147,7 +146,7 @@ public class UserControl {
      * @param privateWord 悄悄话内容
      */
     @PostMapping(value = "/sendPrivateWord", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+//    //@PermissionCheck(value = "ROLE_USER")
     public String sendPrivateWord(@RequestParam("privateWord") String privateWord,
                                       @AuthenticationPrincipal Principal principal){
         String username = principal.getName();
@@ -166,7 +165,7 @@ public class UserControl {
      * @param pageNum 当前页
      */
     @PostMapping(value = "/getPrivateWordByPublisher", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+//    //@PermissionCheck(value = "ROLE_USER")
     public String getPrivateWordByPublisher(@RequestParam("rows") int rows,
                                                 @RequestParam("pageNum") int pageNum,
                                                 @AuthenticationPrincipal Principal principal){
@@ -186,7 +185,7 @@ public class UserControl {
      * @param msgType 消息是评论消息还是留言消息  1-评论  2--留言
      */
     @GetMapping(value = "/readThisMsg", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+//    //@PermissionCheck(value = "ROLE_USER")
     public String readThisMsg(@RequestParam("id") int id,
                            @RequestParam("msgType") int msgType,
                            @AuthenticationPrincipal Principal principal){
@@ -210,7 +209,7 @@ public class UserControl {
      * @param msgType 消息是评论消息还是留言消息  1-评论  2--留言
      */
     @GetMapping(value = "/readAllMsg", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+//    //@PermissionCheck(value = "ROLE_USER")
     public String readAllMsg(@RequestParam("msgType") int msgType,
                                  @AuthenticationPrincipal Principal principal){
         String username = principal.getName();

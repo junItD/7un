@@ -304,6 +304,8 @@
                     } else if(data['status'] == 103){
                         dangerNotice(data['message'] + " 点赞失败")
                     } else if(data['status'] == 802){
+                        alert("你已经点过赞了哦")
+                        // dangerNotice("你已经点过赞了哦")
                     } else {
                         $this.find('span').html(data['data']);
                         $.tipsBox({

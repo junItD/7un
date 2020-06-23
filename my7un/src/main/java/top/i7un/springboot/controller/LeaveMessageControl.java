@@ -106,7 +106,7 @@ public class LeaveMessageControl {
      * @return
      */
     @PostMapping(value = "/publishLeaveMessageReply", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+    //@PermissionCheck(value = "ROLE_USER")
     public String publishLeaveMessageReply( LeaveMessage leaveMessage,
                                            @RequestParam("parentId") String parentId,
                                            @RequestParam("respondent") String respondent,
@@ -142,7 +142,7 @@ public class LeaveMessageControl {
      * @return 点赞数
      */
     @GetMapping(value = "/addLeaveMessageLike", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+    //@PermissionCheck(value = "ROLE_USER")
     public String addLeaveMessageLike(@RequestParam("pageName") String pageName,
                                    @RequestParam("respondentId") String respondentId,
                                    @AuthenticationPrincipal Principal principal){

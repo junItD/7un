@@ -69,7 +69,7 @@ public class ShowArticleControl {
      * @param articleId 文章号
      */
     @GetMapping(value = "/addArticleLike", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @PermissionCheck(value = "ROLE_USER")
+    //@PermissionCheck(value = "ROLE_USER")
     public String addArticleLike(@RequestParam("articleId") String articleId,
                                      @AuthenticationPrincipal Principal principal){
         String username = principal.getName();
