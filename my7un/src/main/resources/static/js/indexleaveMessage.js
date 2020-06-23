@@ -328,7 +328,7 @@
 
     $.ajax({
         type: 'GET',
-        url: '/getPageLeaveMessage',
+        url: '/getAllLeaveMessage',
         dataType: 'json',
         data: {
             pageName:window.location.pathname.substring(1)

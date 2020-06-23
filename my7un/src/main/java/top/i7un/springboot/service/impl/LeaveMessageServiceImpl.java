@@ -146,8 +146,8 @@ public class LeaveMessageServiceImpl implements LeaveMessageService {
 
     @Override
     public DataMap updateLikeByPageNameAndId(String pageName, int id) {
-        leaveMessageMapper.updateLikeByPageNameAndId(pageName, id);
-        int likes = leaveMessageMapper.findLikesByPageNameAndId(pageName, id);
+        leaveMessageMapper.updateLikeById(id);
+        int likes = leaveMessageMapper.findLikesById(id);
         return DataMap.success().setData(likes);
     }
 

@@ -88,7 +88,7 @@ public class LeaveMessageControl {
             if(principal != null){
                 username = principal.getName();
             }
-            DataMap data = leaveMessageService.findAllLeaveMessage(pageName, 0, username);
+            DataMap data = leaveMessageService.findAllLeaveMessage(null, 0, username);
             return JsonResult.build(data).toJSON();
         } catch (Exception e){
             log.error("[{}] get page [{}] leavemessage exception", username, pageName, e);
@@ -152,10 +152,10 @@ public class LeaveMessageControl {
             int userId = userService.findIdByUsername(username);
             LeaveMessageLikesRecord leaveMessageLikesRecord = new LeaveMessageLikesRecord(pageName, Integer.parseInt(respondentId.substring(1)), userId, timeUtil.getFormatDateForFive());
 
-            if(leaveMessageLikesRecordService.isLiked(leaveMessageLikesRecord.getPageName(), leaveMessageLikesRecord.getPId(), userId)){
+            if(leaveMessageLikesRecordService.isLiked(null, leaveMessageLikesRecord.getPId(), userId)){
                 return JsonResult.fail(CodeType.MESSAGE_HAS_THUMBS_UP).toJSON();
             }
-            DataMap data = leaveMessageService.updateLikeByPageNameAndId(pageName, leaveMessageLikesRecord.getPId());
+            DataMap data = leaveMessageService.updateLikeByPageNameAndId(null, leaveMessageLikesRecord.getPId());
             leaveMessageLikesRecordService.insertLeaveMessageLikesRecord(leaveMessageLikesRecord);
             return JsonResult.build(data).toJSON();
         } catch (Exception e){
