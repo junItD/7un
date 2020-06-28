@@ -5,7 +5,10 @@ import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.context.junit4.SpringRunner;
 import top.i7un.springboot.mapper.VisitorMapper;
 import top.i7un.springboot.mapper.WorkMapper;
@@ -78,4 +81,18 @@ public class MyTest {
         System.out.println(stringEncryptor.encrypt("password"));
     }
 
+    @Autowired
+    private JavaMailSender javaMailSender;
+    @Value("${spring.mail.username}")
+    private String from;
+
+    @Test
+    public void testSend(){
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(from); // 邮件发送者
+        message.setTo("347436604@qq.com"); // 邮件接受者
+        message.setSubject("有人留言"); // 主题
+        message.setText("好像又人留言"); // 内容
+        javaMailSender.send(message);
+    }
 }

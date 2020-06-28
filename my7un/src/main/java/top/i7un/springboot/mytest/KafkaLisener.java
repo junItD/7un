@@ -16,4 +16,9 @@ public class KafkaLisener {
         System.out.println(record.topic()+record.key()+record.value());
         System.out.println(222);
     }
+
+    @KafkaListener(topics = "my_test_topic")
+    public void lesten2(ConsumerRecord<?,?> record){
+        System.out.println(333);
+    }
 }
