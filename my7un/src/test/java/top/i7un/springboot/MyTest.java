@@ -14,6 +14,7 @@ import top.i7un.springboot.mapper.VisitorMapper;
 import top.i7un.springboot.mapper.WorkMapper;
 import top.i7un.springboot.model.Work;
 import top.i7un.springboot.mytest.FreeMarkTemplateService;
+import top.i7un.springboot.service.MailService;
 import top.i7un.springboot.utils.FileUtil;
 import top.i7un.springboot.utils.FileUtils;
 
@@ -94,5 +95,12 @@ public class MyTest {
         message.setSubject("有人留言"); // 主题
         message.setText("好像又人留言"); // 内容
         javaMailSender.send(message);
+    }
+
+    @Autowired
+    private MailService mailService;
+    @Test
+    public void testms(){
+        mailService.sendMail("347436604@qq.com","第二次尝试","尝试成功");
     }
 }

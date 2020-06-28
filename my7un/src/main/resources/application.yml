@@ -69,7 +69,7 @@ spring:
       host: smtp.163.com
       port: 25
       username: my7unblog@163.com
-      password: UFQQENVVGMXHLEVK
+      password: ENC(MvTNyJENKnhpXF5nn+7pktZG5uDWdVwwBEB5yzKFaPQ=)
 
 
 mybatis:
