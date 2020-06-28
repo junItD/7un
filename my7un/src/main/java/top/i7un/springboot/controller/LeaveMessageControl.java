@@ -1,5 +1,6 @@
 package top.i7un.springboot.controller;
 
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import top.i7un.springboot.aspect.annotation.PermissionCheck;
 import top.i7un.springboot.component.JavaScriptCheck;
@@ -35,6 +36,8 @@ public class LeaveMessageControl {
     LeaveMessageLikesRecordService leaveMessageLikesRecordService;
     @Autowired
     UserService userService;
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
 
     /**
      * 发表留言
@@ -51,6 +54,11 @@ public class LeaveMessageControl {
         try {
             leaveMessageService.publishLeaveMessage(leaveMessageContent,pageName, answerer);
             DataMap data = leaveMessageService.findAllLeaveMessage(pageName, 0, answerer);
+            try {
+                kafkaTemplate.send("leaveMessage_topic",answerer,leaveMessageContent);
+            } catch (Exception e) {
+                log.warn("{}留言成功但是没有发送邮件",answerer,e);
+            }
             return JsonResult.build(data).toJSON();
         } catch (Exception e){
             log.error("[{}] publish leaveword [{}] on pageName [{}] exception", answerer, leaveMessageContent, pageName, e);

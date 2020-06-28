@@ -1,9 +1,13 @@
 package top.i7un.springboot.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
+import org.springframework.kafka.core.KafkaTemplate;
 import top.i7un.springboot.aspect.PrincipalAspect;
 import top.i7un.springboot.constant.CodeType;
 import top.i7un.springboot.model.User;
 import top.i7un.springboot.redis.StringRedisServiceImpl;
+import top.i7un.springboot.service.MailService;
 import top.i7un.springboot.service.UserService;
 import top.i7un.springboot.utils.DataMap;
 import top.i7un.springboot.utils.JsonResult;
@@ -29,6 +33,9 @@ public class RegisterControl {
     UserService userService;
     @Autowired
     StringRedisServiceImpl stringRedisService;
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
+
 
     @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String register(User user,
@@ -59,6 +66,11 @@ public class RegisterControl {
             if (0 == data.getCode()){
                 //注册成功删除redis中的验证码
                 stringRedisService.remove(user.getPhone());
+            }
+            try {
+                kafkaTemplate.send("register_topic", JSONObject.toJSONString(user));
+            } catch (Exception e) {
+                log.warn("{}注册成功但是没有发送邮件",user.getUsername(),e);
             }
             return JsonResult.build(data).toJSON();
         } catch (Exception e){
