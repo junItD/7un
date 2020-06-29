@@ -25,7 +25,6 @@ public class KafkaConsumerService {
 
     @KafkaListener(topics = {"leaveMessage_topic"})
     public void sendMailLeaveMessage(ConsumerRecord<?,?> record){
-        System.out.println(record.toString());
         String text = "访客<"+record.key().toString()+">给你留言\r\n"+record.value();
         mailService.sendMail("347436604@qq.com","有人留言了",text);
     }

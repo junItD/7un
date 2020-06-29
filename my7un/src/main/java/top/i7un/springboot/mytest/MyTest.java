@@ -9,6 +9,10 @@ import top.i7un.springboot.feign.HelloFeign;
 import top.i7un.springboot.mapper.WorkMapper;
 import top.i7un.springboot.model.Work;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Created by Noone on 2020-05-19.
  */
@@ -38,4 +42,23 @@ public class MyTest {
         System.out.println(twoParams);
         return JSONObject.toJSONString(twoParams);
     }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(i);
+        }
+        List<Integer> collect = list.stream().filter(integer -> integer % 2 == 0).collect(Collectors.toList());
+        ArrayList<Integer> list1 = new ArrayList<>();
+        list.stream().filter(integer -> integer % 2 == 0).forEach(integer -> {
+            list1.add(integer-1);
+        });
+        List<Integer> collect1 = list.stream().filter(integer -> integer % 2 == 0).map(integer -> integer - 1).collect(Collectors.toList());
+        System.out.println(collect);
+        System.out.println(list1);
+        System.out.println(collect1);
+
+
+    }
+
 }
