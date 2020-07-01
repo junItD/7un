@@ -1,8 +1,10 @@
 package top.i7un.springboot.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.google.gson.JsonObject;
-import org.springframework.kafka.core.KafkaTemplate;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import top.i7un.springboot.aspect.PrincipalAspect;
 import top.i7un.springboot.constant.CodeType;
 import top.i7un.springboot.model.User;
@@ -12,11 +14,6 @@ import top.i7un.springboot.service.UserService;
 import top.i7un.springboot.utils.DataMap;
 import top.i7un.springboot.utils.JsonResult;
 import top.i7un.springboot.utils.MD5Util;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -33,8 +30,10 @@ public class RegisterControl {
     UserService userService;
     @Autowired
     StringRedisServiceImpl stringRedisService;
+//    @Autowired
+//    private KafkaTemplate kafkaTemplate;
     @Autowired
-    private KafkaTemplate kafkaTemplate;
+    private MailService mailService;
 
 
     @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -68,7 +67,9 @@ public class RegisterControl {
                 stringRedisService.remove(user.getPhone());
             }
             try {
-                kafkaTemplate.send("register_topic", JSONObject.toJSONString(user));
+//                kafkaTemplate.send("register_topic", JSONObject.toJSONString(user));
+                String text = "公司："+user.getCompany()+"\r\n手机号："+user.getPhone()+"\r\n 用户名："+user.getUsername()+"\r\n 性别"+user.getGender();
+                mailService.sendMail("347436604@qq.com","有人注册了",text);
             } catch (Exception e) {
                 log.warn("{}注册成功但是没有发送邮件",user.getUsername(),e);
             }

@@ -1,23 +1,25 @@
 package top.i7un.springboot.controller;
 
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.*;
-import top.i7un.springboot.aspect.annotation.PermissionCheck;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import top.i7un.springboot.component.JavaScriptCheck;
 import top.i7un.springboot.constant.CodeType;
 import top.i7un.springboot.model.LeaveMessage;
 import top.i7un.springboot.model.LeaveMessageLikesRecord;
 import top.i7un.springboot.service.LeaveMessageLikesRecordService;
 import top.i7un.springboot.service.LeaveMessageService;
+import top.i7un.springboot.service.MailService;
 import top.i7un.springboot.service.UserService;
 import top.i7un.springboot.utils.DataMap;
 import top.i7un.springboot.utils.JsonResult;
 import top.i7un.springboot.utils.StringUtil;
 import top.i7un.springboot.utils.TimeUtil;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 import java.security.Principal;
 
@@ -36,8 +38,10 @@ public class LeaveMessageControl {
     LeaveMessageLikesRecordService leaveMessageLikesRecordService;
     @Autowired
     UserService userService;
+//    @Autowired
+//    private KafkaTemplate kafkaTemplate;
     @Autowired
-    private KafkaTemplate kafkaTemplate;
+    private MailService mailService;
 
     /**
      * 发表留言
@@ -54,8 +58,11 @@ public class LeaveMessageControl {
         try {
             leaveMessageService.publishLeaveMessage(leaveMessageContent,pageName, answerer);
             DataMap data = leaveMessageService.findAllLeaveMessage(pageName, 0, answerer);
+
             try {
-                kafkaTemplate.send("leaveMessage_topic",answerer,leaveMessageContent);
+//                kafkaTemplate.send("leaveMessage_topic",answerer,leaveMessageContent);
+                String text = "访客<"+answerer+">给你留言\r\n"+leaveMessageContent;
+                mailService.sendMail("347436604@qq.com","有人留言了",text);
             } catch (Exception e) {
                 log.warn("{}留言成功但是没有发送邮件",answerer,e);
             }
