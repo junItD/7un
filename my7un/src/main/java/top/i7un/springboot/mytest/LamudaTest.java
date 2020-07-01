@@ -20,7 +20,8 @@ public class LamudaTest {
 
         List<BookBo> distinctList = bookBoList
                 //collectingAndThen收集然后在
-                .stream().collect(Collectors.collectingAndThen(Collectors.toCollection(()->new TreeSet<>(Comparator.comparing(o-> o.getName()))), ArrayList::new));
+                .stream().collect(Collectors.collectingAndThen(Collectors.toCollection(()->new TreeSet<>(Comparator.comparing(BookBo::getName))), ArrayList::new))
+                .stream().sorted(Comparator.comparing(BookBo::getName)).collect(Collectors.toList());
 
         System.out.println(distinctList);
     }

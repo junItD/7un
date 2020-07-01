@@ -67,10 +67,11 @@ spring:
         bootstrap-servers: localhost:9092  #kafka服务地址
     mail:
       host: smtp.163.com
-      port: 25
+      port: 465
       username: my7unblog@163.com
       password: ENC(MvTNyJENKnhpXF5nn+7pktZG5uDWdVwwBEB5yzKFaPQ=)
-
+      properties:
+        mail.smtp.sll.enable: true
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml   #扫描xml路径
