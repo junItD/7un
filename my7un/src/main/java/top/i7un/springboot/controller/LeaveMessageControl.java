@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import top.i7un.springboot.aspect.annotation.PermissionCheck;
 import top.i7un.springboot.component.JavaScriptCheck;
 import top.i7un.springboot.constant.CodeType;
 import top.i7un.springboot.model.LeaveMessage;
@@ -121,7 +122,7 @@ public class LeaveMessageControl {
      * @return
      */
     @PostMapping(value = "/publishLeaveMessageReply", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    //@PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = {"ROLE_SUPERADMIN","ROLE_USER"})
     public String publishLeaveMessageReply( LeaveMessage leaveMessage,
                                            @RequestParam("parentId") String parentId,
                                            @RequestParam("respondent") String respondent,
@@ -157,7 +158,7 @@ public class LeaveMessageControl {
      * @return 点赞数
      */
     @GetMapping(value = "/addLeaveMessageLike", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    //@PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = {"ROLE_SUPERADMIN","ROLE_USER"})
     public String addLeaveMessageLike(@RequestParam("pageName") String pageName,
                                    @RequestParam("respondentId") String respondentId,
                                    @AuthenticationPrincipal Principal principal){
