@@ -307,11 +307,6 @@
         });
     }
 
-    //点击扫描二维码时获取二维码图片
-    $('.myCardBtn').click(function () {
-        $('.qq_code').attr("src","https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/qq_code.png");
-        $('.weixin_code').attr("src","https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/weixin_code.png");
-    });
 
     ajaxFirst(1);
 
