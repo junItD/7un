@@ -42,16 +42,16 @@ public class RegisterControl {
         try {
             String authCode = request.getParameter("authCode");
 
-            String trueMsgCode = (String) stringRedisService.get(user.getPhone());
-
-//            判断手机号是否正确
-            if(trueMsgCode == null){
-                return JsonResult.fail(CodeType.PHONE_ERROR).toJSON();
-            }
-//            判断验证码是否正确
-            if(!authCode.equals(trueMsgCode)){
-                return JsonResult.fail(CodeType.AUTH_CODE_ERROR).toJSON();
-            }
+//            String trueMsgCode = (String) stringRedisService.get(user.getPhone());
+//
+////            判断手机号是否正确
+//            if(trueMsgCode == null){
+//                return JsonResult.fail(CodeType.PHONE_ERROR).toJSON();
+//            }
+////            判断验证码是否正确
+//            if(!authCode.equals(trueMsgCode)){
+//                return JsonResult.fail(CodeType.AUTH_CODE_ERROR).toJSON();
+//            }
             //判断用户名是否存在
             if(userService.usernameIsExist(user.getUsername()) || user.getUsername().equals(PrincipalAspect.ANONYMOUS_USER)){
                 return JsonResult.fail(CodeType.USERNAME_EXIST).toJSON();
@@ -68,8 +68,7 @@ public class RegisterControl {
             }
             try {
 //                kafkaTemplate.send("register_topic", JSONObject.toJSONString(user));
-                String text = "公司："+user.getCompany()+"\r\n手机号："+user.getPhone()+"\r\n 用户名："+user.getUsername()+"\r\n 性别"+user.getGender();
-                mailService.sendMail("347436604@qq.com","有人注册了",text);
+                mailService.sendRegisterMail(user);
             } catch (Exception e) {
                 log.warn("{}注册成功但是没有发送邮件",user.getUsername(),e);
             }
@@ -79,5 +78,7 @@ public class RegisterControl {
         }
         return JsonResult.fail(CodeType.SERVER_EXCEPTION).toJSON();
     }
+
+
 
 }

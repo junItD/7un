@@ -62,8 +62,7 @@ public class LeaveMessageControl {
 
             try {
 //                kafkaTemplate.send("leaveMessage_topic",answerer,leaveMessageContent);
-                String text = "访客<"+answerer+">给你留言\r\n"+leaveMessageContent;
-                mailService.sendMail("347436604@qq.com","有人留言了",text);
+                mailService.sendMessageMail(leaveMessageContent, answerer);
             } catch (Exception e) {
                 log.warn("{}留言成功但是没有发送邮件",answerer,e);
             }
@@ -73,6 +72,7 @@ public class LeaveMessageControl {
         }
         return JsonResult.fail(CodeType.SERVER_EXCEPTION).toJSON();
     }
+
 
 
     @PostMapping(value = "/myLeaveMessage", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
