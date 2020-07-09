@@ -47,9 +47,9 @@ public class UserServiceImpl implements UserService {
             return DataMap.fail(CodeType.PHONE_EXIST);
         }
         if("male".equals(user.getGender())){
-            user.setAvatarImgUrl("http://i7unoss.top/male.jpg");
+            user.setAvatarImgUrl("http://i7unoss.top/m.jpg");
         } else {
-            user.setAvatarImgUrl("http://i7unoss.top/female.jpg");
+            user.setAvatarImgUrl("http://i7unoss.top/w.jpg");
         }
         userMapper.save(user);
         int userId = userMapper.findUserIdByPhone(user.getPhone());
