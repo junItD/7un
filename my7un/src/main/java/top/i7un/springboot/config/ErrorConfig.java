@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 /**
- * @author zhy
  * @date 2019/9/26 9:37
  */
 @Component
