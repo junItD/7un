@@ -3,12 +3,15 @@ package top.i7un.springboot.mytest;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 import top.i7un.springboot.feign.HelloFeign;
 import top.i7un.springboot.mapper.WorkMapper;
 import top.i7un.springboot.model.Work;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,9 +23,21 @@ import java.util.stream.Collectors;
 @RequestMapping("/test")
 public class MyTest {
 
+    @Bean
+    public BookBo bookBo(){
+        return new BookBo();
+    }
     @Autowired
     private HelloFeign feignClient;
+    @Autowired
+    private BookBo bookBo;
 
+    @Bean
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
+    @Autowired
+    private RestTemplate restTemplate;
     @Autowired
     private WorkMapper workMapper;
     @RequestMapping("/myTest")
@@ -32,8 +47,9 @@ public class MyTest {
 
     @RequestMapping("/123")
     public String test1(){
-        int i = 1/0;
-        return "123";
+        return bookBo.get1();
+//        int i = 1/0;
+//        return "123";
     }
 
     @RequestMapping("/two")

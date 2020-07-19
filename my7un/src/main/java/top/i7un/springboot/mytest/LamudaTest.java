@@ -1,5 +1,7 @@
 package top.i7un.springboot.mytest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -7,6 +9,9 @@ import java.util.stream.Collectors;
  * Created by Noone on 2020/6/29.
  */
 public class LamudaTest {
+
+    @Autowired
+    private BookBo bookBo;
 
     public static void main(String[] args) {
 
@@ -23,5 +28,6 @@ public class LamudaTest {
                 .stream().collect(Collectors.collectingAndThen(Collectors.toCollection(()->new TreeSet<>(Comparator.comparing(o-> o.getName()))), ArrayList::new));
 
         System.out.println(distinctList);
+
     }
 }
