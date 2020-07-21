@@ -40,6 +40,12 @@ public class SpringBeanPojo implements BeanNameAware, BeanFactoryAware , Applica
     }
     //第六步 执行MyBeanPostProcessor.postProcessBeforeInitialization
 
+    //就姑且称他为 六点五吧 也可以通过 @PostConstruct 来进行初始化      PostConstruct AfterPropertiesSet init-mehtod  PAI(π)
+    @PostConstruct
+    public void init(){
+        System.out.println("init() method");
+    }
+
     //第七步 执行InitializingBean 里面的afterPropertiesSet
     @Override //InitializingBean 初始化
     public void afterPropertiesSet() throws Exception {
@@ -59,6 +65,12 @@ public class SpringBeanPojo implements BeanNameAware, BeanFactoryAware , Applica
     // 第十步 使用bean 比如我调用了getName
     public String getName(){
         return name;
+    }
+
+    //第十点五步 利用preDestroy
+    @PreDestroy
+    public void MyPreDestroy(){
+        System.out.println("myPreDestroy");
     }
 
     //第十一步 调用DisposableBean 里面的destroy方法
@@ -85,12 +97,16 @@ public class SpringBeanPojo implements BeanNameAware, BeanFactoryAware , Applica
         Book.setBeanFactory invoke
         Book.setApplicationContext invoke
         MyBeanPostProcessor.postProcessBeforeInitialization
+        init() method
         Book.afterPropertiesSet invoke
         springPostConstruct
         MyBeanPostProcessor.postProcessAfterInitialization
         my name is 123
+        myPreDestroy
         DisposableBean lide destory
         Book.destory invoke
         finalize
     * */
+
+
 }
