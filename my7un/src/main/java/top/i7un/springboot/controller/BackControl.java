@@ -217,6 +217,9 @@ public class BackControl {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         request.getSession().removeAttribute("lastUrl");
+        if (resumeService.getRightIdFlag(workId)){
+            return "400";
+        }
         Work work = resumeService.getworkById(workId);
         model.addAttribute("title",work.getCompany()+"工作经历");
         //将工作id存入响应头

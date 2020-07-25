@@ -135,7 +135,6 @@ function siteRunningTime(time) {
 $("#myResume").click(function(){
     // $.get("/upDown",function(){
     // });
-    console.log("12221")
     $.ajax({
         url:'/upDown?date='+new Date().getTime(),
         async:true,

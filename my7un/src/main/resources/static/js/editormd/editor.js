@@ -40,7 +40,7 @@
         });
 
     var publishBtn = $('.publishBtn');
-    var articleTitle = $('#zhy-editor-title');
+    var articleTitle = $('#zj-editor-title');
     var articleContent = $('#my-editormd-html-code');
     var noticeBoxTitle = $('.notice-box-title');
     var noticeBoxContent = $('.notice-box-content');
@@ -149,7 +149,7 @@
                 return;
             }
             if(data['status'] == 0){
-                $('#zhy-editor-title').val(data['data']['articleTitle']);
+                $('#zj-editor-title').val(data['data']['articleTitle']);
                 $('#my-editormd-markdown-doc').html(data['data']['articleContent']);
                 $('#select-type').val(data['data']['articleType']);
                 $('#select-grade').val(data['data']['articleGrade']);

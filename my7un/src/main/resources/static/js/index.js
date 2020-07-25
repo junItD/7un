@@ -92,7 +92,7 @@
             var center = $('<div class="center">' +
                 '<header class="article-header">' +
                 '<h1 itemprop="name">' +
-                '<a class="article-title" href="' + obj['thisArticleUrl'] + '" target="_self">' + obj['articleTitle'] + '</a>' +
+                '<a class="article-title" href="' + obj['thisArticleUrl'] + '" target="_blank">' + obj['articleTitle'] + '</a>' +
                 '</h1>' +
                 '<div class="article-meta row">' +
                 '<span class="articleType am-badge am-badge-success">' + obj['articleType'] + '</span>' +
@@ -307,11 +307,6 @@
         });
     }
 
-    //点击扫描二维码时获取二维码图片
-    $('.myCardBtn').click(function () {
-        $('.qq_code').attr("src","https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/qq_code.png");
-        $('.weixin_code').attr("src","https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/weixin_code.png");
-    });
 
     ajaxFirst(1);
 

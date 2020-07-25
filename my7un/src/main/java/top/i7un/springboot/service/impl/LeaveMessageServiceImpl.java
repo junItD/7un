@@ -48,7 +48,7 @@ public class LeaveMessageServiceImpl implements LeaveMessageService {
         leaveMessageContent = JavaScriptCheck.javaScriptCheck(leaveMessageContent);
         LeaveMessage leaveMessage = new LeaveMessage(pageName, userService.findIdByUsername(answerer), userService.findIdByUsername(SiteOwner.SITE_OWNER), nowStr, leaveMessageContent);
 
-        if(leaveMessage.getAnswererId() == leaveMessage.getRespondentId()){
+        if(leaveMessage.getAnswererId().equals(leaveMessage.getRespondentId())){
             leaveMessage.setIsRead(0);
         }
         leaveMessageMapper.save(leaveMessage);
@@ -62,7 +62,7 @@ public class LeaveMessageServiceImpl implements LeaveMessageService {
         String nowStr = timeUtil.getFormatDateForFive();
         leaveMessage.setLeaveMessageDate(nowStr);
         leaveMessage.setRespondentId(userService.findIdByUsername(respondent));
-        if(leaveMessage.getAnswererId() == leaveMessage.getRespondentId()){
+        if(leaveMessage.getAnswererId().equals(leaveMessage.getRespondentId())){
             leaveMessage.setIsRead(0);
         }
         leaveMessageMapper.save(leaveMessage);

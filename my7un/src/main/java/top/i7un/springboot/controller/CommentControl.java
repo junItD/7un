@@ -67,7 +67,7 @@ public class CommentControl {
      * @param principal 当前用户
      */
     @PostMapping(value = "/publishComment", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    //@PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = {"ROLE_SUPERADMIN","ROLE_USER"})
     public String publishComment(Comment comment,
                                  @AuthenticationPrincipal Principal principal){
 
@@ -95,7 +95,7 @@ public class CommentControl {
      * @param principal 当前用户
      */
     @PostMapping(value = "/publishReply", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    //@PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = {"ROLE_SUPERADMIN","ROLE_USER"})
     public String publishReply(Comment comment,
                                @RequestParam("parentId") String parentId,
                                @RequestParam("respondent") String respondent,
@@ -137,7 +137,7 @@ public class CommentControl {
      * 是否登陆
      */
     @GetMapping(value = "/isLogin", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    //@PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = {"ROLE_SUPERADMIN","ROLE_USER"})
     public String isLogin(){
         return JsonResult.success().toJSON();
     }
@@ -150,7 +150,7 @@ public class CommentControl {
      * @return 点赞数
      */
     @GetMapping(value = "/addCommentLike", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    //@PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = {"ROLE_SUPERADMIN","ROLE_USER"})
     public String addCommentLike(@RequestParam("articleId") String articleId,
                               @RequestParam("respondentId") String respondentId,
                               @AuthenticationPrincipal Principal principal){

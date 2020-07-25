@@ -40,4 +40,8 @@
     <select id="getTwoParams" resultMap="myWork">
         select t.*,r.begin_time beginT,r.id id1 ,r.end_time endT ,r.*  from t_work t join t_work_record r on t.id = r.work_id where  t.department = #{department}  and t.post_name = #{param1} and r.project = #{project}
     </select>
+
+    <select id="getRightIdFlag" resultType="java.lang.Integer">
+        select 1 from t_work where id = #{workId} limit 1
+    </select>
 </mapper>

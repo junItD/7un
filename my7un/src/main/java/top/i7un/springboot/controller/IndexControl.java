@@ -170,7 +170,7 @@ public class IndexControl {
      * 反馈
      */
     @PostMapping(value = "/submitFeedback", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    //@PermissionCheck(value = "ROLE_USER")
+    @PermissionCheck(value = {"ROLE_SUPERADMIN","ROLE_USER"})
     public String submitFeedback(FeedBack feedBack,
                                  @AuthenticationPrincipal Principal principal){
         String username = principal.getName();

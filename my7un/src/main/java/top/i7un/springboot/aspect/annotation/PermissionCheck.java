@@ -1,6 +1,7 @@
 package top.i7un.springboot.aspect.annotation;
 
 import java.lang.annotation.*;
+import java.util.List;
 
 /**
  * @author:  Noone
@@ -12,6 +13,7 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 public @interface PermissionCheck {
 
-    String value();
+    String[] value();
+
 
 }

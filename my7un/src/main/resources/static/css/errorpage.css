@@ -5,6 +5,13 @@
     width: 80%;
     margin: 30px auto;
 }
+.error400Page{
+    text-align: center;
+}
+.error400Page img{
+    width: 30%;
+    margin: 30px auto;
+}
 .errorWords{
     text-align: center;
 }

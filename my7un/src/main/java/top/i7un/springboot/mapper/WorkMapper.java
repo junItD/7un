@@ -25,4 +25,6 @@ public interface WorkMapper {
     Work getworkById(long workId);
 
     Work getTwoParams(String postName ,String department ,String project);
+
+    Integer getRightIdFlag(Long workId);
 }

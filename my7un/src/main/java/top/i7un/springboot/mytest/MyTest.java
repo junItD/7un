@@ -25,7 +25,7 @@ public class MyTest {
 
     @Bean
     public BookBo bookBo(){
-        return new BookBo();
+        return new BookBo("1","2");
     }
     @Autowired
     private HelloFeign feignClient;
@@ -47,7 +47,7 @@ public class MyTest {
 
     @RequestMapping("/123")
     public String test1(){
-        return bookBo.get1();
+        return bookBo.getName()+bookBo.getAuthor();
 //        int i = 1/0;
 //        return "123";
     }

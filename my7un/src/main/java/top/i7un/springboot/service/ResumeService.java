@@ -12,4 +12,6 @@ public interface ResumeService {
     DataMap getWorkRecordByWorkId(String workId);
 
     Work getworkById(long workId);
+
+    Boolean getRightIdFlag(Long workId);
 }

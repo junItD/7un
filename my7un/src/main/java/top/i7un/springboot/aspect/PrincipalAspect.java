@@ -13,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -42,9 +43,9 @@ public class PrincipalAspect {
         }
         //接口权限拦截
         Collection<? extends GrantedAuthority> authority =  auth.getAuthorities();
-        String value = permissionCheck.value();
+        String[] value = permissionCheck.value();
         for(GrantedAuthority g : authority){
-            if(g.getAuthority().equals(value)){
+            if(Arrays.asList(value).contains(g.getAuthority())){
                 return pjp.proceed();
             }
         }

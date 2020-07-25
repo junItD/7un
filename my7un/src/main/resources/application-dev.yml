@@ -12,7 +12,8 @@ spring:
 aliyun:
   accessKeyId: ENC(6cQIy9IcCYRzjnNQQKvpAeyUA79hwu/GIUwXKNKm/HwVh/KgSSe0mw==) #6cQIy9IcCYRzjnNQQKvpAeyUA79hwu/GIUwXKNKm/HwVh/KgSSe0mw==
   secret: ENC(EPMfXiUUNaSrQhve37oaljQRRJjgOuDXxq/HJIvz0MjG4ierV/G3XA==)  #EPMfXiUUNaSrQhve37oaljQRRJjgOuDXxq/HJIvz0MjG4ierV/G3XA==
-  endpoint: ENC(8foE8aG4uvaIoSnNxAQkSDStz3gvCTVUCPctqRQuUduHncLYhFDtYQ==)
+  endpoint: i7unoss.top
+  #endpoint: ENC(8foE8aG4uvaIoSnNxAQkSDStz3gvCTVUCPctqRQuUduHncLYhFDtYQ==)
 
 #eureka:
 #  client:

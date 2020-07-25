@@ -8,6 +8,7 @@ import top.i7un.springboot.model.WorkRecord;
 import top.i7un.springboot.service.ResumeService;
 import top.i7un.springboot.utils.DataMap;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +23,7 @@ public class ResumeServiceImpl implements ResumeService {
     @Override
     public DataMap findAllwork() {
         List<Work> works = workMapper.selectAllWork();
+        works.stream().filter(work -> work.getEndTime() == null).forEach(work -> work.setEndTime(new Date()));
         return DataMap.success().setData(works);
     }
 
@@ -35,4 +37,11 @@ public class ResumeServiceImpl implements ResumeService {
     public Work getworkById(long workId) {
         return workMapper.getworkById(workId);
     }
+
+    @Override
+    public Boolean getRightIdFlag(Long workId) {
+        Integer rightIdFlag = workMapper.getRightIdFlag(workId);
+        return null == rightIdFlag;
+    }
+
 }

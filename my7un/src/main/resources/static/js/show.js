@@ -3,8 +3,8 @@
 
     //填充文章
     function putInArticle(data) {
-        $('.zhy-article-top').html('');
-        $('.zhy-article-footer').html('');
+        $('.zj-article-top').html('');
+        $('.zj-article-footer').html('');
         var articleTop = $('<article-top><div class="article-title">' +
             '<h1>' + data.articleTitle + '</h1>' +
             '</div>' +
@@ -24,7 +24,7 @@
             '</div></article-top><div class="article-i-say">' +
             '和气热心之人 其福亦厚 其泽亦长。<span class="article-i-say-me">--- 峻仔</span>' +
             '</div>');
-        $('.zhy-article-top').append(articleTop);
+        $('.zj-article-top').append(articleTop);
         $("#mdText").text(data.articleContent);
         var wordsView;
         wordsView = editormd.markdownToHTML("wordsView", {
@@ -64,7 +64,7 @@
             '<span class="article-next">' +
             '</span>' +
             '</div>');
-        $('.zhy-article-footer').append(articleFooter);
+        $('.zj-article-footer').append(articleFooter);
         var tags = $('<div class="tags"></div>');
         for(var i=0;i<data.articleTags.length;i++){
             var tag = $('<i class="am-icon-tag"></i><a class="articleTagColor" href="/tags?tag=' + data.articleTags[i] + '"> ' + data.articleTags[i] + '</a>');
@@ -105,12 +105,12 @@
             $('.likeHeart').find('i').removeClass("am-icon-heart-o");
             $('.likeHeart').find('i').addClass("am-icon-heart");
         }
-        $('.other').append($('<div class="social-share" data-initialized="true" data-url="https://www.zhyocean.cn/article/' + data.articleId  + '"  data-title="' + data.articleTitle + '">' +
-            '<a href="#" class="social-share-icon icon-qq" data-am-popover="{content: \'分享至QQ好友\', trigger: \'hover focus\'}"></a>' +
-            '<a href="#" class="social-share-icon icon-qzone" data-am-popover="{content: \'分享至QQ空间\', trigger: \'hover focus\'}"></a>' +
-            '<a href="#" class="social-share-icon icon-wechat"></a>' +
-            '<a href="#" class="social-share-icon icon-weibo" data-am-popover="{content: \'分享至微博\', trigger: \'hover focus\'}"></a>' +
-            '</div>'))
+        // $('.other').append($('<div class="social-share" data-initialized="true" data-url="https://www.zjocean.cn/article/' + data.articleId  + '"  data-title="' + data.articleTitle + '">' +
+        //     '<a href="#" class="social-share-icon icon-qq" data-am-popover="{content: \'分享至QQ好友\', trigger: \'hover focus\'}"></a>' +
+        //     '<a href="#" class="social-share-icon icon-qzone" data-am-popover="{content: \'分享至QQ空间\', trigger: \'hover focus\'}"></a>' +
+        //     '<a href="#" class="social-share-icon icon-wechat"></a>' +
+        //     '<a href="#" class="social-share-icon icon-weibo" data-am-popover="{content: \'分享至微博\', trigger: \'hover focus\'}"></a>' +
+        //     '</div>'))
 
         //选中所有需放大的图片加上data-src属性
         $("#wordsView img").each(function(index){
@@ -510,8 +510,8 @@
                 dangerNotice(data['message'] + " 获得文章失败");
             } else {
                 $('.content').html('');
-                var error = $('<div class="article"><div class="zhy-article-top"><div class="error">' +
-                    '<img src="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/register_success.jpg">' +
+                var error = $('<div class="article"><div class="zj-article-top"><div class="error">' +
+                    '<img src="http://i7unoss.top/something/kong.gif">' +
                     '<p>没有找到这篇文章哦</p>' +
                     '<p>可能不小心被博主手残删掉了吧</p>' +
                     '<div class="row">' +

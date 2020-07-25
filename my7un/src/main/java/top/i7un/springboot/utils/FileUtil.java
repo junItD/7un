@@ -33,7 +33,7 @@ public class FileUtil {
         String md5Key = AliYunOSSClientUtil.uploadObject2OSS(ossClient, file, OSSClientConstants.BACKET_NAME,
                 OSSClientConstants.FOLDER + subCatalog + "/");
         String url = AliYunOSSClientUtil.getUrl(ossClient, md5Key);
-        String picUrl = "https://" + OSSClientConstants.BACKET_NAME + "." + OSSClientConstants.ENDPOINT +
+        String picUrl = "https://" +  OSSClientConstants.ENDPOINT +
                 "/" + OSSClientConstants.FOLDER + subCatalog + "/" + file.getName();
 
         //删除临时生成的文件

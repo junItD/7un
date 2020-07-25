@@ -49,28 +49,37 @@ spring:
     jackson:
       date-format: yyyy-MM-dd HH:mm:ss
       time-zone: GMT+8
-    kafka:
-      consumer:
-        bootstrap-servers: localhost:9092  #kafka服务地址
-        group-id: my7un  #指定一个默认的组名
-        auto-offset-reset: earliest #当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
-        enable-auto-commit: true
-        auto-commit-interval: 100
-        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer  #key的反序列化
-        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer #value的反序列化
-      producer:
-        retries: 0
-        batch-size: 16384  #批量抓取
-        buffer-memory: 33554432  #缓存容量
-        key-serializer: org.apache.kafka.common.serialization.StringSerializer #key的反序列化
-        value-serializer: org.apache.kafka.common.serialization.StringSerializer #value的反序列化
-        bootstrap-servers: localhost:9092  #kafka服务地址
+#    kafka:
+#      consumer:
+#        bootstrap-servers: localhost:9092  #kafka服务地址
+#        group-id: my7un  #指定一个默认的组名
+#        auto-offset-reset: earliest #当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+#        enable-auto-commit: true
+#        auto-commit-interval: 100
+#        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer  #key的反序列化
+#        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer #value的反序列化
+#      producer:
+#        retries: 0
+#        batch-size: 16384  #批量抓取
+#        buffer-memory: 33554432  #缓存容量
+#        key-serializer: org.apache.kafka.common.serialization.StringSerializer #key的反序列化
+#        value-serializer: org.apache.kafka.common.serialization.StringSerializer #value的反序列化
+#        bootstrap-servers: localhost:9092  #kafka服务地址
     mail:
       host: smtp.163.com
-      port: 25
+      port: 465
       username: my7unblog@163.com
       password: ENC(MvTNyJENKnhpXF5nn+7pktZG5uDWdVwwBEB5yzKFaPQ=)
-
+      properties:
+        mail:
+         smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml   #扫描xml路径
