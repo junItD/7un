@@ -1,0 +1,16 @@
+package top.i7un.springboot.mytest;
+
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportSelector;
+import org.springframework.core.type.AnnotationMetadata;
+
+/**
+ * Created by Noone on 2020-07-26.
+ */
+public class MyImportSelector implements ImportSelector {
+    @Override
+    public String[] selectImports(AnnotationMetadata annotationMetadata) {
+
+        return new String[]{"top.i7un.springboot.mytest.SpringBeanPojo"};
+    }
+}

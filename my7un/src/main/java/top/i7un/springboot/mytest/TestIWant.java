@@ -1,7 +1,10 @@
 package top.i7un.springboot.mytest;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import top.i7un.springboot.SpringbootApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,4 +31,11 @@ public class TestIWant {
 //            userlist.add(new User());
 //        }
 //    }
+public static void main(String[] args) {
+    AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(Start.class);
+    String[] beanDefinitionNames = annotationConfigApplicationContext.getBeanDefinitionNames();
+    for (String beanDefinitionName : beanDefinitionNames) {
+        System.out.println(beanDefinitionName);
+    }
+}
 }
