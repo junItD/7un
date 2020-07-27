@@ -21,16 +21,16 @@ import top.i7un.springboot.mytest.SpringBeanPojo;
 @MapperScan("top.i7un.springboot.mapper")
 public class SpringbootApplication {
 
-    @Bean(initMethod = "springPostConstruct",destroyMethod = "myDestroy")
-    public SpringBeanPojo xxx(){
-        SpringBeanPojo springBeanPojo = new SpringBeanPojo();
-        springBeanPojo.setName("my name is 123");
-        return springBeanPojo;
-    }
+//    @Bean(initMethod = "springPostConstruct",destroyMethod = "myDestroy")
+//    public SpringBeanPojo xxx(){
+//        SpringBeanPojo springBeanPojo = new SpringBeanPojo();
+//        springBeanPojo.setName("my name is 123");
+//        return springBeanPojo;
+//    }
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(SpringbootApplication.class, args);
-        SpringBeanPojo springbeanpojo = (SpringBeanPojo) run.getBean("xxx");
-        System.out.println(springbeanpojo.getName());
+//        SpringBeanPojo springbeanpojo = (SpringBeanPojo) run.getBean("xxx");
+//        System.out.println(springbeanpojo.getName());
 
     }
 
