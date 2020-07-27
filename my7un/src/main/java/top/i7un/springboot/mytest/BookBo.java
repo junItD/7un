@@ -22,6 +22,9 @@ public class BookBo implements Serializable {
         return author;
     }
 
+    public String get1(){
+        return "1";
+    }
     public void setAuthor(String author) {
         this.author = author;
     }
