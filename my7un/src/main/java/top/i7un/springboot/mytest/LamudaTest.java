@@ -2,7 +2,10 @@ package top.i7un.springboot.mytest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.lang.reflect.Array;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**
@@ -30,12 +33,34 @@ public class LamudaTest {
 //        List<BookBo> collect = bookBoList.stream().distinct().collect(Collectors.toList());
 //        System.out.println(collect);
 
-        bookBoList.stream().filter(bookBo -> "5".equals(bookBo.getName())).forEach(bookBo -> bookBo.setName("0"));
-        System.out.println(bookBoList);
+//        bookBoList.stream().filter(bookBo -> "5".equals(bookBo.getName())).forEach(bookBo -> bookBo.setName("0"));
+//        System.out.println(bookBoList);
 //        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
 //        Integer reduce = integers.stream().reduce(0, (integer, integer2) -> integer * integer2);
 //        System.out.println(reduce);
+//        List<String> collect = bookBoList.stream().map(BookBo::getName).collect(Collectors.toCollection(ArrayList::new));
 
+//        testLam("yyy", x -> System.out.println(x));
+//        AtomicInteger atomicInteger = new AtomicInteger(5);
+//        atomicInteger.getAndIncrement();
+//        System.out.println(atomicInteger.get());
+        ArrayList<String> integers = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            new Thread(() -> {
+                integers.add(UUID.randomUUID().toString().substring(0, 8));
+                System.out.println(integers);
+            }, String.valueOf(i)).start();
+        }
+        LamudaTest lamudaTest = new LamudaTest();
+        lamudaTest.changeValue(20);
+        System.out.println();
+    }
 
+    public static void testLam(String x , Consumer<String> consumer){
+        consumer.accept(x);
+    }
+
+    public void changeValue(int age){
+        age = 30;
     }
 }

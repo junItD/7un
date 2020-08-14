@@ -32,8 +32,8 @@ public class SpringbootApplication {
     }
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(SpringbootApplication.class, args);
-        SpringBeanPojo springbeanpojo = (SpringBeanPojo) run.getBean("top.i7un.springboot.mytest.SpringBeanPojo");
-        System.out.println(springbeanpojo.getName());
+//        SpringBeanPojo springbeanpojo = (SpringBeanPojo) run.getBean("top.i7un.springboot.mytest.SpringBeanPojo");
+//        System.out.println(springbeanpojo.getName());
 
 //        javaconfig的斑斑
 //        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(Start.class);
