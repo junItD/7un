@@ -41,7 +41,7 @@
             // '<div class="show-weixin">' +
             // '<p><i class="weiXinQuoteLeft am-icon-quote-left "></i></p><br>' +
             // '<p class="show-weixin-pic">' +
-            // '<img src="https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg">' +
+            // '<img src="http://i7unoss.top/1.png">' +
             // '</p>' +
             // '<p class="show-weixin-pic">欢迎关注我的微信公众号</p>' +
             // '<p><i class="weiXinQuoteRight am-icon-quote-right "></i></p>' +

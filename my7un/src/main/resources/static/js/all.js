@@ -142,7 +142,7 @@ $('#sidebar_toggle').click(function () {
         error:function () {
         }
     });
-    $('.weixinPublic').attr("src","https://i.loli.net/2020/05/03/C2tE4jivuhbAw8I.jpg");
+    $('.weixinPublic').attr("src","http://i7unoss.top/1.png");
 });
 
 // //获得登录用户未读消息
