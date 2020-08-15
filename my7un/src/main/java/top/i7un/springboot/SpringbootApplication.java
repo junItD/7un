@@ -14,8 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import top.i7un.springboot.mytest.SpringBeanPojo;
 import top.i7un.springboot.mytest.Start;
 
-import java.util.HashMap;
-
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableWebMvc
@@ -26,16 +24,16 @@ import java.util.HashMap;
 @MapperScan("top.i7un.springboot.mapper")
 public class SpringbootApplication {
 
-//    @Bean(initMethod = "springPostConstruct",destroyMethod = "myDestroy")
-//    public SpringBeanPojo xxx(){
-//        SpringBeanPojo springBeanPojo = new SpringBeanPojo();
-//        springBeanPojo.setName("my name is 123");
-//        return springBeanPojo;
-//    }
+    @Bean(initMethod = "springPostConstruct",destroyMethod = "myDestroy")
+    public SpringBeanPojo xxx(){
+        SpringBeanPojo springBeanPojo = new SpringBeanPojo();
+        springBeanPojo.setName("my name is 123");
+        return springBeanPojo;
+    }
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(SpringbootApplication.class, args);
-//        SpringBeanPojo springbeanpojo = (SpringBeanPojo) run.getBean("top.i7un.springboot.mytest.SpringBeanPojo");
-//        System.out.println(springbeanpojo.getName());
+        SpringBeanPojo springbeanpojo = (SpringBeanPojo) run.getBean("top.i7un.springboot.mytest.SpringBeanPojo");
+        System.out.println(springbeanpojo.getName());
 
 //        javaconfig的斑斑
 //        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(Start.class);
