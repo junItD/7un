@@ -75,7 +75,9 @@ public class MyTest {
         System.out.println(list1);
         System.out.println(collect1);
 
+        System.out.println("第一次尝试");
 
+        
     }
 
 }
